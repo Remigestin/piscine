@@ -6,6 +6,7 @@
                 <th>numSuivi</th>
                 <th>contacte</th>.
                 <th>annule</th>
+                <th>commentaire</th>
                 
             </tr>
 <?php
@@ -16,6 +17,7 @@ foreach ($suivi as $item) {
         <td>$item->numSuivi</td>
         <td>$item->contacte</td>
         <td>$item->annule</td>
+        <td>$item->commentaire</td>
      </tr>
 EOT;
 }
