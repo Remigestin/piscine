@@ -13,6 +13,6 @@ class Suivi extends CI_Controller {
 	public function index()
 	{
                 $data['suivi'] = $this->suivi_model->selectAll();
-		$this->load->view('suivi/home2', $data);
+		$this->load->view('suivi/home', $data);
 	}
 }
