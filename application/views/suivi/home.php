@@ -317,6 +317,8 @@
                           <th>contacte</th>
                           <th>annule</th>
                           <th>commentaire</th>
+                          <th>derniereDateContact</th>
+                          <th>derniereDateReponse</th>
                         </tr>
                         
                         
@@ -331,6 +333,8 @@ foreach ($suivi as $item) {
         <td>$item->contacte</td>
         <td>$item->annule</td>
         <td>$item->commentaire</td>
+        <td>$item->derniereDateContact</td>
+        <td>$item->derniereDateReponse</td>
      </tr>
 EOT;
 }
