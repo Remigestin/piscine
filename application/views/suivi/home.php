@@ -312,29 +312,34 @@
                     <table id="datatablePiscine" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>numSuivi</th>
-                          <th>numEditeur</th>
-                          <th>contacte</th>
-                          <th>annule</th>
-                          <th>commentaire</th>
-                          <th>derniereDateContact</th>
-                          <th>derniereDateReponse</th>
+                          
+                          <th>Nom</th>
+                          <th>Contacté</th>
+                          <th>A annulé</th>
+                          <th>Paiement</th>
+                          <th>Présent</th>
+                          <th>Facturé</th>
+                          <th>Derniere date de contact</th>
+                          <th>Derniere date de réponse</th>
+                          <th>Prix</th>
                         </tr>
                         
                         
                       </thead>
                         <?php
 foreach ($suivi as $item) {
-   
     echo <<<EOT
     <tr>
-        <td>$item->numSuivi</td>
-        <td>$item->numEditeur</td>
+        
+        <td>$item->nomEditeur</td>
         <td>$item->contacte</td>
         <td>$item->annule</td>
-        <td>$item->commentaire</td>
+        <td>$item->paiement</td>
+        <td>$item->presentAuFestival</td>
+        <td>$item->facture</td>
         <td>$item->derniereDateContact</td>
         <td>$item->derniereDateReponse</td>
+        <td>$item->prix</td>
      </tr>
 EOT;
 }

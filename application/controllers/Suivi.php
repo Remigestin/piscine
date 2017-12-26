@@ -8,11 +8,33 @@ class Suivi extends CI_Controller {
             parent::__construct();
 
             $this->load->model('suivi_model');
+            $this->load->model('editeur_model');
         }
         
 	public function index()
 	{
                 $data['suivi'] = $this->suivi_model->selectAll();
+                foreach($data['suivi'] as $item) {
+                    
+                    $item->annule = str_replace(1, "Oui", $item->annule); //Pour les variables booleennes, on remplace les 1 par des Oui et des 0 par des Non
+                    $item->annule = str_replace(0, "Non", $item->annule);
+                    
+                    $item->contacte = str_replace(1, "Oui", $item->contacte);
+                    $item->contacte = str_replace(0, "Non", $item->contacte);
+                    
+                    $item->paiement = str_replace(1, "Oui", $item->paiement);
+                    $item->paiement = str_replace(0, "Non", $item->paiement);
+                    
+                    $item->presentAuFestival = str_replace(1, "Oui", $item->presentAuFestival);
+                    $item->presentAuFestival = str_replace(0, "Non", $item->presentAuFestival);
+                    
+                    $item->facture = str_replace(1, "Oui", $item->facture);
+                    $item->facture = str_replace(0, "Non", $item->facture);
+                    
+                    
+                    $nom = $this->editeur_model->selectNameById($item->numEditeur); //on récupère le nom de l'editeur à partir de son id
+                    $item->nomEditeur = $nom[0]->nomEditeur;
+                }
 		$this->load->view('suivi/home', $data);
 	}
 }
