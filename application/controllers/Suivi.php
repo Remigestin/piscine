@@ -6,14 +6,18 @@ class Suivi extends CI_Controller {
         public function __construct() {
             //	Obligatoire
             parent::__construct();
-
-            $this->load->model('suivi_model');
-            $this->load->model('editeur_model');
+                if (!($this->session->has_userdata('login'))) {
+           
+                    header('location: ' . site_url('welcome/errorSession'));
+                } 
+            
         }
         
 	public function index()
 	{
+                
                 $data['suivi'] = $this->suivi_model->selectAll();
+                $data['login'] = $this->session->login;
                 foreach($data['suivi'] as $item) {
                     
                     $item->annule = str_replace(1, "Oui", $item->annule); //Pour les variables booleennes, on remplace les 1 par des Oui et des 0 par des Non

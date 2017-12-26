@@ -3,32 +3,24 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Editeur_model extends CI_Model {
+class Utilisateur_model extends CI_Model {
     
-    protected $table = 'editeur';
+    protected $table = 'utilisateur';
     
-    public function selectAll() {
+    public function checkPassword($login, $mdp) {
         $this->load->database('default');
         
         return $this->db->select('*')
                         ->from($this->table)
+                        ->where('login', $login)
+                        ->where('mdp', $mdp)
                         ->get()
                         ->result();
                 
                 
     }
     
-     public function selectNameById($id) {
-        $this->load->database('default');
-        
-        return $this->db->select('nomEditeur')
-                        ->from($this->table)
-                        ->where('numEditeur', $id)
-                        ->get()
-                        ->result();
-                
-                
-    }
+
     
 }
 /* 

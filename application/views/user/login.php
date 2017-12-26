@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Festival Art et Jeu </title>
+    <title>Festival Art et Jeu</title>
 
     <!-- Bootstrap -->
     <link href="gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,16 +30,16 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-              <form>
+              <form method='post' action=<?php echo site_url("welcome/connected") ?>>
               <h1>Connexion</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input name="login" type="text" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input name = "mdp" type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="<?php echo site_url("suivi")?>">Log in</a>
+                  <button type = "submit" class="btn btn-default submit">Log in</button>
                 <!--<a class="reset_pass" href="#">Lost your password?</a> -->
               </div>            
 
