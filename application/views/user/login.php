@@ -30,7 +30,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-              <form method='post' action=<?php echo site_url("welcome/connected") ?>>
+              <form method='post' action=<?php echo site_url("utilisateur/connected") ?>>
               <h1>Connexion</h1>
               <div>
                 <input name="login" type="text" class="form-control" placeholder="Username" required="" />
