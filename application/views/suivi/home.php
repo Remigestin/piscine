@@ -17,7 +17,7 @@
     <link href="<?php echo base_url() ?>gentelella-master/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -27,7 +27,7 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>gentelella-master/build/css/custom.min.css" rel="stylesheet">
-    
+
     <!-- Datatables -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -68,7 +68,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
+                      <li><a href="<?php echo site_url('Jeu'); ?>">Liste des Jeux</a></li>
                       <li><a href="index2.html">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
@@ -157,7 +157,7 @@
                         <li><a href="#level1_2">Level One</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
@@ -312,7 +312,7 @@
                     <table id="datatablePiscine" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          
+
                           <th>Nom</th>
                           <th>Contacté</th>
                           <th>A annulé</th>
@@ -323,14 +323,14 @@
                           <th>Derniere date de réponse</th>
                           <th>Prix</th>
                         </tr>
-                        
-                        
+
+
                       </thead>
                         <?php
 foreach ($suivi as $item) {
     echo <<<EOT
     <tr>
-        
+
         <td>$item->nomEditeur</td>
         <td>$item->contacte</td>
         <td>$item->annule</td>
@@ -345,7 +345,7 @@ EOT;
 }
 ?>
         </div>
-        
+
         <!-- /page content -->
 
         <!-- footer content -->
@@ -396,7 +396,7 @@ EOT;
     <!-- bootstrap-daterangepicker -->
     <script src="<?php echo base_url() ?>gentelella-master/vendors/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    
+
     <!-- Datatables -->
     <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -421,6 +421,6 @@ EOT;
                $('#datatablePiscine').DataTable();
         } );
 </script>
-	
+
   </body>
 </html>
