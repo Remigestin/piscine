@@ -1,6 +1,8 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+
 class Editeur_model extends CI_Model {
     
     protected $table = 'editeur';
@@ -34,3 +36,4 @@ class Editeur_model extends CI_Model {
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
