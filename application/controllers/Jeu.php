@@ -7,7 +7,7 @@ class Jeu extends CI_Controller {
       parent::__construct();
           if (!($this->session->has_userdata('login'))) {
 
-              header('location: ' . site_url('welcome/errorSession'));
+              header('location: ' . site_url('utilisateur/errorSession'));
           }
 
   }
