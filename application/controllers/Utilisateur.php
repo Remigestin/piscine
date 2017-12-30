@@ -12,7 +12,12 @@ class Utilisateur extends CI_Controller {
 	
 	public function index()
 	{
+            if (!($this->session->has_userdata('login'))) {
 		$this->load->view('user/login');
+            }
+            else {
+                 header('location: '. site_url('suivi'));
+            }
 	}
         
         public function connected() {
