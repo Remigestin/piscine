@@ -328,10 +328,11 @@
                       </thead>
                         <?php
 foreach ($suivi as $item) {
+    $lien = site_url("editeur/fiche/$item->numEditeur");
     echo <<<EOT
     <tr>
 
-        <td>$item->nomEditeur</td>
+        <td><a href="$lien">$item->nomEditeur</a></td>
         <td>$item->contacte</td>
         <td>$item->annule</td>
         <td>$item->paiement</td>

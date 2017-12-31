@@ -18,6 +18,16 @@ class Editeur_model extends CI_Model {
                 
     }
     
+    public function selectById($id) {
+         $this->load->database('default');
+        
+        return $this->db->select('*')
+                        ->from($this->table)
+                        ->where('numEditeur', $id)
+                        ->get()
+                        ->result();
+    }
+    
      public function selectNameById($id) {
         $this->load->database('default');
         

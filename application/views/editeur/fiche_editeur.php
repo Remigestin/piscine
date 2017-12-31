@@ -287,7 +287,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Liste des jeux <small>Users</small></h2>
+                    <h3><?php echo $editeur[0]->nomEditeur ?></h3>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -306,32 +306,71 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                     Liste de jeux:
-                    </p>
-                    <table id="datatablePiscine" class="table table-striped table-bordered">
+                      <h2>Adresse :</h2>
+                     <ul>
+                         <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
+                         <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>
+                         <li>Code Postale : <?php echo $editeur[0]->cpEditeur ?></li>
+                     </ul>
+                      <br>
+                      <h2>Liste des réservations  : </h2>
+                      <br>
+                      
+                      <ul>
+                        <?php
+                        $i = 1;
+foreach ($reservation as $item) {
+    echo <<<EOT
+        <div class="x_panel">
+        <li><h2>Reservation n°$i</h2></li>
+        <ul>
+            <li>Nombre de demi tables  : $item->nbDemiTable </li>
+            <li>Zone : $item->numZone </li>
+        </ul>
+        <br>
+        
+             <table id="datatablePiscine$i" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Nom du Jeu</th>
                           <th>Type de Jeu</th>
-                          <th>Editeur</th>
+                          <th>Quantité</th>
+                          <th>Arrivé</th>
+                          <th>A renvoyé</th>
+                          <th>Surdimension</th>
+                          <th>Prix de Renvoi</th>
+                          <th>Prototype</th>
                         </tr>
-                      </thead>
-                        <?php
-foreach ($jeu as $item) {
+                      </thead> 
+            
+            
+EOT;
     
-    $lien = site_url("editeur/fiche/$item->numEditeur");
+   
+                  
+foreach ($jeu[$i-1] as $item2) {
     echo <<<EOT
     <tr>
 
-        <td>$item->nomJeu</td>
-        <td>$item->libelleType</td>
-         <td><a href="$lien">$item->nomEditeur</a></td>
+        <td>$item2->nomJeu</td>
+        <td>$item2->libelleType</td>
+        <td>$item2->quantiteJeu</td>
+        <td>$item2->arrive</td>
+        <td>$item2->aRenvoyer</td>
+        <td>$item2->surdimension</td>
+        <td>$item2->prixRenvoi</td>
+        <td>$item2->prototype</td>
      </tr>
 EOT;
 }
+
+                echo    "</table></div>";
+    $i++;
+}
 ?>
-                    </table>
+                      </ul>
+                  </div>    
+            </div>
         </div>
 
         <!-- /page content -->
@@ -404,11 +443,21 @@ EOT;
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url() ?>gentelella-master/build/js/custom.min.js"></script>
+    <?php 
+    $i = 1;
+foreach ($reservation as $item) {
+    echo <<<EOT
     <script>
         $(document).ready(function() {
-               $('#datatablePiscine').DataTable();
+               $('#datatablePiscine$i').DataTable();
         } );
 </script>
+EOT;
+    $i++;
+}
+
+    ?>
+    
 
   </body>
 </html>
