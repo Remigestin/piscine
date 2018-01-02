@@ -23,7 +23,7 @@ class Editeur_model extends CI_Model {
         
         return $this->db->select('*')
                         ->from($this->table)
-                        ->where('numEditeur', $id)
+                        ->where('editeur.numEditeur', $id)
                         ->get()
                         ->result();
     }

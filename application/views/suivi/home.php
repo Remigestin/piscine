@@ -274,8 +274,10 @@
 
                           <th>Nom</th>
                           <th>Contacté</th>
+                          <th>A répondu</th>
                           <th>A annulé</th>
                           <th>Paiement</th>
+                          
                           <th>Présent</th>
                           <th>Facturé</th>
                           <th>Derniere date de contact</th>
@@ -293,6 +295,7 @@ foreach ($suivi as $item) {
 
         <td><a href="$lien">$item->nomEditeur</a></td>
         <td>$item->contacte</td>
+        <td>$item->reponse</td>
         <td>$item->annule</td>
         <td>$item->paiement</td>
         <td>$item->presentAuFestival</td>

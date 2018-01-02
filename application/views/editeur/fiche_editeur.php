@@ -24,9 +24,11 @@
     <link href="<?php echo base_url() ?>gentelella-master/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+    
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>gentelella-master/build/css/custom.min.css" rel="stylesheet">
+    
+    
 
     <!-- Datatables -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -306,14 +308,93 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      <h2>Adresse :</h2>
+                      <div class="row">
+                           <div class="col-md-2 ">
+                      <h2>Adresse <a class="glyphicon glyphicon-edit" href=""></a></h2>
                      <ul>
                          <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
                          <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>
                          <li>Code Postale : <?php echo $editeur[0]->cpEditeur ?></li>
                      </ul>
+                           </div>
+                      </div>
+                         
+                          
+                                      
+                      <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+                      
+                      <div class="row">
+                       <?php
+                          $i = 1;
+                          foreach($contact as $item) {
+                              echo <<<EOT
+                          
+                          <div class="col-md-2">
+                              <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2>
+                     <ul>
+                         <li>Nom : $item->nomContact
+                         <li>Prénom : $item->prenomContact 
+                         <li>Mail : $item->mailContact 
+                         <li>Téléphone : $item->telContact 
+                     </ul>
+                          </div>
+EOT;
+                              $i++;
+                                      }
+                                      
+                                      ?>
+                      </div>
+                      <h2>Suivi <a class="glyphicon glyphicon-edit" href=""></a> </h2>
                       <br>
-                      <h2>Liste des réservations  : </h2>
+                      <div class="row">
+                     
+                      
+                      
+                       <div class="col-md-1 " >
+                      Contacté :  <?php echo $suivi[0]->contacte?>
+                       </div>
+                          
+                           <div class="col-md-1 " >
+                      A répondu :  <?php echo $suivi[0]->reponse?>
+                       </div>
+                          
+                        <div class="col-md-1 " >
+                      Présent :  <?php echo $suivi[0]->presentAuFestival?>
+                       </div>
+                          
+                           <div class="col-md-1 " >
+                      Facturé :  <?php echo $suivi[0]->facture?>
+                       </div>
+                           <div class="col-md-1 " >
+                      A payé :  <?php echo $suivi[0]->paiement?>
+                       </div>
+                       
+                       <div class="col-md-1 ">
+                      Annulé : <?php echo $suivi[0]->annule ?>
+                       </div>
+                          
+                       <div class="col-md-2 " >
+                      Dernière date de contact :  <?php echo $suivi[0]->derniereDateContact?>
+                       </div>
+                          
+                          <div class="col-md-2 " >
+                      Dernière date de réponse :  <?php echo $suivi[0]->derniereDateReponse?>
+                       </div>
+                            
+         
+                      
+                      </div>
+                                      
+                      <br>
+                      <h2>Commentaires <a class="glyphicon glyphicon-edit" href=""></a> </h2>
+                    
+                         <div class="row x_panel">
+                             <div >
+                                 <li><?php echo $suivi[0]->commentaire ?></li>
+                             </div>
+                         </div>
+                      <h2>Réservations   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+                     
                       <br>
                       
                       <ul>
@@ -322,7 +403,7 @@
 foreach ($reservation as $item) {
     echo <<<EOT
         <div class="x_panel">
-        <li><h2>Reservation n°$i</h2></li>
+        <li><h2>Reservation n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2></li>
         <ul>
             <li>Nombre de demi tables  : $item->nbDemiTable </li>
             <li>Zone : $item->numZone </li>

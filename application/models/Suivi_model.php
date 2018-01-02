@@ -18,6 +18,18 @@ class Suivi_model extends CI_Model {
                 
     }
     
+     public function selectByEditeur($id) {
+        $this->load->database('default');
+        
+        return $this->db->select('*')
+                        ->from($this->table)
+                        ->where('numEditeur', $id)
+                        ->get()
+                        ->result();
+                
+                
+    }
+    
 }
 /* 
  * To change this license header, choose License Headers in Project Properties.
