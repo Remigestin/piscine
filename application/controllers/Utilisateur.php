@@ -6,6 +6,17 @@ class Utilisateur extends CI_Controller {
         public function __construct() {
             //	Obligatoire
             parent::__construct();
+            if (!($this->session->has_userdata('login'))) {
+           
+                    header('location: ' . site_url('login/errorSession'));
+                }
+                else {
+                    if(!($this->session->has_userdata('annee'))) {
+                        $annee = $this->festival_model->getLast();
+                        $this->session->annee = $annee[0]->annee;
+                        var_dump($this->session->annee);
+                    }
+                }
  
         }
 
@@ -40,7 +51,5 @@ class Utilisateur extends CI_Controller {
             header('location:  ' . site_url(''));
         }
         
-        public function errorSession() {
-            $this->load->view('errors/page_403');
-        }
+        
 }   

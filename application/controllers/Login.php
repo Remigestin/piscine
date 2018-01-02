@@ -19,4 +19,8 @@ class Login extends CI_Controller {
             }
 	}
         
+        public function errorSession() {
+            $this->load->view('errors/page_403');
+        }
+        
 }   
