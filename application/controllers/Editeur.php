@@ -10,16 +10,17 @@ class Editeur extends CI_Controller {
                     header('location: ' . site_url('login/errorSession'));
                 }
                 else {
-                    if(!($this->session->has_userdata('annee'))) {
-                        $annee = $this->festival_model->getLast();
-                        $this->session->annee = $annee[0]->annee;
-                        var_dump($this->session->annee);
+                    if(!($this->session->has_userdata('festival'))) {
+                        $festival = $this->festival_model->getLast();
+                        $this->session->festival = $festival[0]->numFestival;
+                       
                     }
                 }
 
   }
 
   public function fiche($id){
+    $festival = $this->session->festival;
     
     $data['login'] = $this->session->login;
     $data['editeur'] = $this->editeur_model->selectById($id);
@@ -37,12 +38,12 @@ class Editeur extends CI_Controller {
     $data['suivi'][0]->reponse = $this->utile->OuiNon($data['suivi'][0]->reponse);
     
     
-    $data['reservation'] = $this->reservation_model->selectByEditeur($id);
+    $data['reservation'] = $this->reservation_model->selectByEditeur($id, $festival);
     
     //Pour chaque réservation, on récupère les jeux correspondants
     $data['jeu'] = array();
     foreach ($data['reservation'] as $item) {
-        $tmp = $this->jeu_model->selectByReservation($item->numReservation);
+        $tmp = $this->jeu_model->selectByReservation($item->numReservation, $festival);
         array_push($data['jeu'], $tmp);
     }
     $this->load->view('editeur/fiche_editeur', $data);

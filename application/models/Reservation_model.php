@@ -8,12 +8,14 @@ class Reservation_model extends CI_Model {
     protected $table = 'reservation';
   
     
-    public function selectByEditeur($id) {
+    public function selectByEditeur($id, $fest) {
          $this->load->database('default');
         
         return $this->db->select('*')
                         ->from($this->table)
+                        ->join('festival', "festival.numFestival = reservation.numFestival")
                         ->where('numEditeur', $id)
+                        ->where('festival.numFestival', $fest)
                         ->get()
                         ->result();
     }

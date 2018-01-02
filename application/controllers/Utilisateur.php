@@ -10,11 +10,11 @@ class Utilisateur extends CI_Controller {
            
                     header('location: ' . site_url('login/errorSession'));
                 }
-                else {
-                    if(!($this->session->has_userdata('annee'))) {
-                        $annee = $this->festival_model->getLast();
-                        $this->session->annee = $annee[0]->annee;
-                        var_dump($this->session->annee);
+                 else {
+                    if(!($this->session->has_userdata('festival'))) {
+                        $festival = $this->festival_model->getLast();
+                        $this->session->festival = $festival[0]->numFestival;
+                       
                     }
                 }
  

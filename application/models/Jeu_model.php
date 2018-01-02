@@ -2,7 +2,7 @@
 
 class Jeu_model extends CI_Model{
 
-  public function getJeu() {
+  public function getJeu($fest) {
     $this->load->database('default');
 
     /* SELECT nomJeu,libelleType,nomEditeur
@@ -14,28 +14,37 @@ class Jeu_model extends CI_Model{
                     ->from('jeu')
                     ->join('type', 'jeu.numType = type.numType')
                     ->join('editeur', 'jeu.numEditeur = editeur.numEditeur')
+                    ->join('reservation', 'jeu.numReservation = reservation.numReservation')
+                    ->join('festival', 'festival.numFestival = reservation.numFestival')
+                    ->where('festival.numFestival', $fest)
                     ->get()
                     ->result();
   }
   
-  public function selectByEditeur($id) {
+  public function selectByEditeur($id, $fest) {
     $this->load->database('default');
 
     return $this->db->select('*')
                     ->from('jeu')
                     ->join('type', 'jeu.numType = type.numType')
+                    ->join('reservation', 'jeu.numReservation = reservation.numReservation')
+                    ->join('festival', 'festival.numFestival = reservation.numFestival')
+                    ->where('festival.numFestival', $fest)
                     ->where('numEditeur', $id)
                     ->get()
                     ->result();
   }
   
-   public function selectByReservation($id) {
+   public function selectByReservation($id, $fest) {
     $this->load->database('default');
 
     return $this->db->select('*')
                     ->from('jeu')
                     ->join('type', 'jeu.numType = type.numType')
                     ->join('concerner', "concerner.numjeu = jeu.numJeu")
+                    ->join('reservation', 'jeu.numReservation = reservation.numReservation')
+                    ->join('festival', 'festival.numFestival = reservation.numFestival')
+                    ->where('festival.numFestival', $fest)
                     ->where('concerner.numReservation', $id)
                     ->order_by('concerner.numReservation')
                     ->get()
