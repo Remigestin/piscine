@@ -75,7 +75,7 @@
                   </li>
                  
                   <ul class="nav side-menu">
-                      <li><a><i class="fa fa-wrench"></i> Page Administrateur <a href="<?php echo site_url('??');?>"> </a></li>
+                      <li><a href="<?php echo site_url('Admin');?>">><i class="fa fa-wrench"></i> Page Administrateur</a></li>
                       
                   </ul>
                  

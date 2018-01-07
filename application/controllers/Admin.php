@@ -20,21 +20,22 @@ class Admin extends CI_Controller {
             
         }
 public function index()
-	{              
+	{
+	$festival = $this->session->festival;
 	$data['login'] = $this->session->login;
-	$data['editeur1'] = $this->admin_model->getDataEditeur1();
-	$data['editeur2'] = $this->admin_model->getDataEditeur2();
-	$data['editeur3'] = $this->admin_model->getDataEditeur3();
-	$data['editeur4'] = $this->admin_model->getDataEditeur4();
-	$data['editeur5'] = $this->admin_model->getDataEditeur5();
-	$data['editeur6'] = $this->admin_model->getDataEditeur6();
-	$data['jeu1'] = $this->admin_model->getDataJeux();
-	$data['jeu2'] = $this->admin_model->getDataJeux2();
-	$data['jeu3'] = $this->admin_model->getDataJeux3();
-	$data['jeu4'] = $this->admin_model->getDataJeux4();
-	$data['jeu5'] = $this->admin_model->getDataJeux5();
-	$data['frais1'] = $this->admin_model->getDataFrais1();
-	$data['frais2'] = $this->admin_model->getDataFrais2();
+	$data['editeur1'] = $this->admin_model->getDataEditeur1($festival);
+	$data['editeur2'] = $this->admin_model->getDataEditeur2($festival);
+	$data['editeur3'] = $this->admin_model->getDataEditeur3($festival);
+	$data['editeur4'] = $this->admin_model->getDataEditeur4($festival);
+	$data['editeur5'] = $this->admin_model->getDataEditeur5($festival);
+	$data['editeur6'] = $this->admin_model->getDataEditeur6($festival);
+	$data['jeu1'] = $this->admin_model->getDataJeux($festival);
+	$data['jeu2'] = $this->admin_model->getDataJeux2($festival);
+	$data['jeu3'] = $this->admin_model->getDataJeux3($festival);
+	$data['jeu4'] = $this->admin_model->getDataJeux4($festival);
+	$data['jeu5'] = $this->admin_model->getDataJeux5($festival);
+	$data['frais1'] = $this->admin_model->getDataFrais1($festival);
+	$data['frais2'] = $this->admin_model->getDataFrais2($festival);
 
 
 
