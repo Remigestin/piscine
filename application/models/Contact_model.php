@@ -16,6 +16,36 @@ class Contact_model extends CI_Model {
                     ->get()
                     ->result();
   }
+  
+   public function insert($data) {
+    $this->load->database('default');
+
+    
+        $this->db->set('nomContact', $data['nomContact'])
+                ->set('prenomContact', $data['prenomContact'])
+                ->set('mailContact', $data['mailContact'])
+                ->set('telContact', $data['telContact'])
+                ->set('numEditeur', $data['numEditeur'])
+                ->insert($this->table);
+  }
+  
+  public function update($id, $data) {
+        $this->load->database('default');
+
+        $this->db->set('nomContact', $data['nomContact'])
+                ->set('prenomContact', $data['prenomContact'])
+                ->set('mailContact', $data['mailContact'])
+                ->set('telContact', $data['telContact'])
+                ->set('numEditeur', $data['numEditeur']);
+                
+                
+        
+        $this->db->where('id', (int)$id);
+        return $this->db->update($this->table);
+        
+    }
+    
+    
     
 }
 /* 
