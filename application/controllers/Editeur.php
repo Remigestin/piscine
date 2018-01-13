@@ -41,12 +41,12 @@ class Editeur extends CI_Controller {
     $data['reservation'] = $this->reservation_model->selectByEditeur($id, $festival);
     
     //Pour chaque réservation
-    $data['jeu'] = array();
+    $data['jeuReservation'] = array();
     foreach ($data['reservation'] as $item) {
         
         // on récupère les jeux correspondants et on récupère le nom de la zone
         $tmp = $this->jeu_model->selectByReservation($item->numReservation, $festival);
-        array_push($data['jeu'], $tmp);
+        array_push($data['jeuReservation'], $tmp);
         
         //On récupère le nom de la zone
         $zone = $this->zone_model->selectById($item->numZone);
@@ -56,19 +56,17 @@ class Editeur extends CI_Controller {
     }
    
     //Pour les variables booleennes, on remplace les 1 par des Oui et des 0 par des Non
-    foreach ($data['jeu'] as $item) {
+    foreach ($data['jeuReservation'] as $item) {
         foreach ($item as $item2) {
             $item2->arrive = $this->utile->OuiNon($item2->arrive);
             $item2->aRenvoyer = $this->utile->OuiNon($item2->aRenvoyer);
             $item2->surdimension = $this->utile->OuiNon($item2->surdimension);
             $item2->prototype = $this->utile->OuiNon($item2->prototype);
         }
-        
-        
-        
-        
     }
     
+    //On récupère tous les jeux de l'editeur indépendamment du festival
+    $data['jeu'] = $this->jeu_model->selectByEditeurALL($id);
     
     $this->load->view('editeur/fiche_editeur', $data);
   }

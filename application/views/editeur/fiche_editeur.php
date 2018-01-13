@@ -310,7 +310,7 @@ EOT;
     
    
                   
-foreach ($jeu[$i-1] as $item2) {
+foreach ($jeuReservation[$i-1] as $item2) {
     echo <<<EOT
     <tr>
 
@@ -331,7 +331,33 @@ EOT;
 }
 ?>
                       </ul>
-                  </div>    
+                      
+
+                    <h2>Jeux   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+                    
+                    <div class="col-md-6 ">
+                    <table id="datatableJeu" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Nom du Jeu</th>
+                          <th>Type de Jeu</th>
+                          
+                        </tr>
+                      </thead>
+                        <?php
+foreach ($jeu as $item) {
+    echo <<<EOT
+    <tr>
+
+        <td>$item->nomJeu</td>
+        <td>$item->libelleType</td>
+     </tr>
+EOT;
+}
+?>
+                    </table>
+                  </div>
+                  </div>
             </div>
         </div>
 
@@ -403,6 +429,11 @@ EOT;
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url() ?>gentelella-master/build/js/custom.min.js"></script>
+    <script>
+        $(document).ready(function() {
+               $('#datatableJeu').DataTable();
+        } );
+</script>
     <?php 
     $i = 1;
 foreach ($reservation as $item) {

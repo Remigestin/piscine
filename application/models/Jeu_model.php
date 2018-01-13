@@ -35,6 +35,17 @@ class Jeu_model extends CI_Model{
                     ->result();
   }
   
+   public function selectByEditeurALL($id) {
+    $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from('jeu')
+                    ->join('type', 'jeu.numType = type.numType')
+                    ->where('numEditeur', $id)
+                    ->get()
+                    ->result();
+  }
+  
    public function selectByReservation($id, $fest) {
     $this->load->database('default');
 
