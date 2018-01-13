@@ -3,7 +3,7 @@
 class Utile {
     
    
-
+    
     public function OuiNon($bool) {
             if ($bool == 1) {
                 return "Oui";
@@ -12,6 +12,8 @@ class Utile {
                 return "Non";
             }
     }
+    
+    
    
 
 }

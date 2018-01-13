@@ -40,14 +40,51 @@ class Editeur extends CI_Controller {
     
     $data['reservation'] = $this->reservation_model->selectByEditeur($id, $festival);
     
-    //Pour chaque réservation, on récupère les jeux correspondants
+    //Pour chaque réservation
     $data['jeu'] = array();
     foreach ($data['reservation'] as $item) {
+        
+        // on récupère les jeux correspondants et on récupère le nom de la zone
         $tmp = $this->jeu_model->selectByReservation($item->numReservation, $festival);
         array_push($data['jeu'], $tmp);
+        
+        //On récupère le nom de la zone
+        $zone = $this->zone_model->selectById($item->numZone);
+        $nomZone = Editeur::nomZone($zone[0]);
+        $item->nomZone = $nomZone;
+        
     }
+   
+    //Pour les variables booleennes, on remplace les 1 par des Oui et des 0 par des Non
+    foreach ($data['jeu'] as $item) {
+        foreach ($item as $item2) {
+            $item2->arrive = $this->utile->OuiNon($item2->arrive);
+            $item2->aRenvoyer = $this->utile->OuiNon($item2->aRenvoyer);
+            $item2->surdimension = $this->utile->OuiNon($item2->surdimension);
+            $item2->prototype = $this->utile->OuiNon($item2->prototype);
+        }
+        
+        
+        
+        
+    }
+    
+    
     $this->load->view('editeur/fiche_editeur', $data);
   }
+  
+  public function nomZone($zone) {
+        
+        
+        if ($zone->numType == NULL) {
+            $nom = $this->editeur_model->selectById($zone->numEditeur);
+            return $nom[0]->nomEditeur;
+        }
+        else if ($zone->numEditeur == NULL) {
+            $nom = $this->type_model->selectById($zone->numType);
+            return $nom[0]->libelleType;
+        }
+    }
 
 
 }

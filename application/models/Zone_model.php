@@ -1,6 +1,19 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Zone_model extends CI_Model{
+    
+ protected $table = 'zone';
+ 
+public function selectById($id) {
+        $this->load->database('default');
+        
+        return $this->db->select('*')
+                        ->from($this->table)
+                        ->where('numZone', $id)
+                        ->get()
+                        ->result();
+                
+    }   
 
 public function getZoneEditeur() {
     $this->load->database('default');
