@@ -280,7 +280,7 @@ foreach ($reservation as $item) {
         <div class="x_panel">
         <li><h2>Reservation n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2></li>
         <ul>
-            <li>Nombre de demi tables  : $item->nbDemiTable </li>
+            <li>Nombre de tables  : $item->nbTable </li>
             <li>Zone : $item->nomZone </li>
         </ul>
         <br>

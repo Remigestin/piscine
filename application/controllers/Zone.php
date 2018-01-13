@@ -24,6 +24,12 @@ class Zone extends CI_Controller {
   public function index(){
     $data['zoneEditeur'] = $this->zone_model->getZoneEditeur();
 	$data['zoneType'] = $this->zone_model->getZoneType();
+        foreach ($data['zoneType'] as $item) {
+            $item->nbTable = $item->nbDemiTable /2 ;
+        }
+        foreach ($data['zoneEditeur'] as $item) {
+            $item->nbTable = $item->nbDemiTable /2 ;
+        }
     $data['login'] = $this->session->login;
     $this->load->view('zone/liste_zone', $data);
   }

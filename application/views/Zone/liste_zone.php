@@ -234,7 +234,7 @@
                      <thead>
                        <tr>
                          <th>Nom Editeur</th>
-                         <th>Nb Demi table</th>
+                         <th>Nb table</th>
                        </tr>
                      </thead>
                        <?php
@@ -243,7 +243,7 @@ foreach ($zoneEditeur as $item) {
    echo <<<EOT
    <tr>
        <td><a href="$lien">$item->nomEditeur</td>
-       <td>$item->nbDemiTable</td>
+       <td>$item->nbTable</td>
 
     </tr>
 EOT;
@@ -256,7 +256,7 @@ EOT;
                      <thead>
                        <tr>
                          <th>Zones-types</th>
-                         <th>Nombre de Demi table</th>
+                         <th>Nombre de table</th>
                        </tr>
                      </thead>
                        <?php
@@ -264,7 +264,7 @@ foreach ($zoneType as $item) {
    echo <<<EOT
    <tr>
        <td>$item->libelleType</td>
-       <td>$item->nbDemiTable</td>
+       <td>$item->nbTable</td>
 
     </tr>
 EOT;
