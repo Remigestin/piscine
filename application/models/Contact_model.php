@@ -17,6 +17,16 @@ class Contact_model extends CI_Model {
                     ->result();
   }
   
+  public function selectById($id) {
+    $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from('contact')
+                    ->where('numContact', $id)
+                    ->get()
+                    ->result();
+  }
+  
    public function insert($data) {
     $this->load->database('default');
 
@@ -35,14 +45,21 @@ class Contact_model extends CI_Model {
         $this->db->set('nomContact', $data['nomContact'])
                 ->set('prenomContact', $data['prenomContact'])
                 ->set('mailContact', $data['mailContact'])
-                ->set('telContact', $data['telContact'])
-                ->set('numEditeur', $data['numEditeur']);
+                ->set('telContact', $data['telContact']);
+                
                 
                 
         
-        $this->db->where('id', (int)$id);
+        $this->db->where('numContact', (int)$id);
         return $this->db->update($this->table);
         
+    }
+    
+    public function delete($id) {
+        $this->load->database('default');
+        
+        return $this->db->where('numContact', (int) $id)
+			->delete($this->table);
     }
     
     

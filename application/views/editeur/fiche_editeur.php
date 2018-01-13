@@ -187,19 +187,25 @@
                      </ul>
                            </div>
                       </div>
-                         
+                         <?php
                           
-                                      
-                      <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
-                      
+                        $numEditeur = $editeur[0]->numEditeur;
+                        $lien = site_url("contact/creer/$numEditeur");              
+                      echo <<<EOT
+                        <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href="$lien"></a></h2>
+EOT;
+                      ?>
                       <div class="row">
                        <?php
                           $i = 1;
+                          
                           foreach($contact as $item) {
+                              $numContact = $item->numContact;
+                              $lien2 = site_url("contact/modifier/$numContact");    
                               echo <<<EOT
                           
                           <div class="col-md-2">
-                              <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2>
+                              <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href="$lien2"></a></h2>
                      <ul>
                          <li>Nom : $item->nomContact
                          <li>Prénom : $item->prenomContact 

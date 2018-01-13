@@ -198,13 +198,14 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left input_mask">
+                    <form class="form-horizontal form-label-left input_mask" method='post' action="<?php echo site_url("contact/$action") ?>">
 
 							<!-- Zones de texte -->
+                       <input name="id" type="hidden" value="<?php echo $id ?>">
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Nom</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control has-feedback-left">
+                          <input <?php if (isset($contact)) echo "value = \"" . $contact[0]->nomContact . "\""?>name="nomContact" type="text" class="form-control has-feedback-left">
                           <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                         </div>
                       </div>
@@ -212,21 +213,21 @@
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Prénom</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control has-feedback-left">
+                          <input <?php if (isset($contact)) echo "value = \"" . $contact[0]->prenomContact . "\""?> name="prenomContact" type="text" class="form-control has-feedback-left">
                           <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Mail</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control has-feedback-left">
+                          <input <?php if (isset($contact)) echo "value = \"" . $contact[0]->mailContact . "\""?>name="mailContact" type="text" class="form-control has-feedback-left">
                           <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Téléphone</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control has-feedback-left">
+                          <input <?php if (isset($contact)) echo "value = \"" . $contact[0]->telContact . "\"" ?> name="telContact" type="text" class="form-control has-feedback-left">
                           <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                         </div>
                       </div>
@@ -237,9 +238,10 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <button type="button" class="btn btn-primary">Annuler</button>
-						   <button class="btn btn-primary" type="reset">Recommencer</button>
+                          
+			<button class="btn btn-primary" type="reset">Recommencer</button>
                           <button type="submit" class="btn btn-success">Envoyer</button>
+                          <?php if ($action == "edit") { $lienDelete = site_url("contact/delete/".$contact[0]->numContact); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Supprimer</button>"; }?>
                         </div>
                       </div>
 
