@@ -202,6 +202,7 @@
 
 							<!-- Zones de texte -->
                        <input name="id" type="hidden" value="<?php echo $id ?>">
+                       <input name="typeFiche" type="hidden" value="<?php echo $typeFiche ?>">
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Nom</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">

@@ -20,8 +20,9 @@ class Contact extends CI_Controller {
 
   }
 
-  public function creer($id){
+  public function creer($id, $typeFiche){
      $data['id'] = $id;
+     $data['typeFiche'] = $typeFiche;
      $data['action'] = "create";
      $this->load->view('contact/ajout_contact', $data);
      
@@ -38,12 +39,18 @@ class Contact extends CI_Controller {
       
       $this->contact_model->insert($data);
       $editeur = $_POST['id'];
-      header('location:  ' . site_url("editeur/fiche/$editeur"));
+      if ($_POST['typeFiche'] == 1){
+           header('location:  ' . site_url("editeur/fiche/$editeur"));
+      } else {
+          header('location:  ' . site_url("editeur/fiche2/$editeur"));
+      }
+     
   }
   
-  public function modifier($id) {
+  public function modifier($id, $typeFiche) {
       $data['contact'] = $this->contact_model->selectById($id);
       $data['action'] = "edit";
+      $data['typeFiche'] = $typeFiche;
       $data['id'] = $id;
       $this->load->view('contact/ajout_contact',$data);
   }
@@ -61,14 +68,23 @@ class Contact extends CI_Controller {
       $this->contact_model->update($id, $data);
       $contact = $this->contact_model->selectById($id);
       $editeur = $contact[0]->numEditeur;
-      header('location:  ' . site_url("editeur/fiche/$editeur"));
+      if ($_POST['typeFiche'] == 1){
+           header('location:  ' . site_url("editeur/fiche/$editeur"));
+      } else {
+          header('location:  ' . site_url("editeur/fiche2/$editeur"));
+      }
+      
   }
   
   public function delete($id) {
       $contact = $this->contact_model->selectById($id);
       $editeur = $contact[0]->numEditeur;
         $this->contact_model->delete($id);
-         header('location:  ' . site_url("editeur/fiche/$editeur"));
+         if ($_POST['typeFiche'] == 1){
+           header('location:  ' . site_url("editeur/fiche/$editeur"));
+      } else {
+          header('location:  ' . site_url("editeur/fiche2/$editeur"));
+      }
     }
 
 

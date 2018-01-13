@@ -190,7 +190,7 @@
                          <?php
                           
                         $numEditeur = $editeur[0]->numEditeur;
-                        $lien = site_url("contact/creer/$numEditeur");              
+                        $lien = site_url("contact/creer/$numEditeur/1");              
                       echo <<<EOT
                         <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href="$lien"></a></h2>
 EOT;
@@ -201,7 +201,7 @@ EOT;
                           
                           foreach($contact as $item) {
                               $numContact = $item->numContact;
-                              $lien2 = site_url("contact/modifier/$numContact");    
+                              $lien2 = site_url("contact/modifier/$numContact/1");    
                               echo <<<EOT
                           
                           <div class="col-md-2">

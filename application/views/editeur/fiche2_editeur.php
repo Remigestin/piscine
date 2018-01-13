@@ -189,17 +189,28 @@
                       </div>
                          
                           
-                                      
-                      <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+ 
                       
                       <div class="row">
                        <?php
+                          
+                        $numEditeur = $editeur[0]->numEditeur;
+                        $lien = site_url("contact/creer/$numEditeur/2");              
+                      echo <<<EOT
+                        <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href="$lien"></a></h2>
+EOT;
+                      ?>
+                      <div class="row">
+                       <?php
                           $i = 1;
+                          
                           foreach($contact as $item) {
+                              $numContact = $item->numContact;
+                              $lien2 = site_url("contact/modifier/$numContact/2");    
                               echo <<<EOT
                           
                           <div class="col-md-2">
-                              <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2>
+                              <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href="$lien2"></a></h2>
                      <ul>
                          <li>Nom : $item->nomContact
                          <li>Prénom : $item->prenomContact 
@@ -316,20 +327,7 @@ EOT;
                $('#datatableJeu').DataTable();
         } );
 </script>
-    <?php 
-    $i = 1;
-foreach ($reservation as $item) {
-    echo <<<EOT
-    <script>
-        $(document).ready(function() {
-               $('#datatablePiscine$i').DataTable();
-        } );
-</script>
-EOT;
-    $i++;
-}
 
-    ?>
     
 
   </body>
