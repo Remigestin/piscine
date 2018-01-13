@@ -228,76 +228,7 @@
                                                                 </div>
                                                                 
                                                     </div>
-                                                    
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label"> Quentité :</label>
-                                                        <div class="col-sm-6">
-                                                            <input type="quentité" class="form-control" name="?">
-                                                       
-                                                        </div>
-                                                    </div>
-                                                   
-                                                    
-                                                    <div class="form-group">
-                                                                <label class="col-sm-3 control-label">Le jeu est-il arrivé?</label>
-                                                                <div class="col-sm-6">
-                                                                    <select class="form-control">
-                                                                        <option>OUI</option>
-                                                                        <option>NON</option>
-                                                                    </select>
-                                                                        
-                                                                </div>
-                                                                
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                                <label class="col-sm-3 control-label">Doit-on renvoyer le jeu?</label>
-                                                                <div class="col-sm-6">
-                                                                    <select class="form-control">
-                                                                        <option>OUI</option>
-                                                                        <option>NON</option>
-                                                                    </select>
-                                                                        
-                                                                </div>
-                                                                
-                                                    </div>
-                                                    
-                                                    
-                                                    
-                                                    <div class="form-group">
-                                                        <label  class="col-sm-3 control-label"> Prix de renvoi :</label>
-                                                        <div class="col-sm-6">
-                                                            <input type="?" class="form-control" name="?">
-                                                       
-                                                        </div>
-                                                    </div>
-                                                  
-                                                    <div class="form-group">
-                                                                <label class="col-sm-3 control-label">Le jeu est-il un prototype</label>
-                                                                <div class="col-sm-6">
-                                                                    <select class="form-control">
-                                                                        <option>OUI</option>
-                                                                        <option>NON</option>
-                                                                    </select>
-                                                                        
-                                                                </div>
-                                                                
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                                <label class="col-sm-3 control-label">Le jeu est-il surdimensionné?</label>
-                                                                <div class="col-sm-6">
-                                                                    <select class="form-control">
-                                                                        <option>OUI</option>
-                                                                        <option>NON</option>
-                                                                    </select>
-                                                                        
-                                                                </div>
-                                                                
-                                                    </div>
-                
-                                         
-                                        
+                                                 
 
                                      
                                         <div class="row">
