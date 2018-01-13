@@ -49,7 +49,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
                 <span> Bienvenue! </span>
                 <h1><?php echo $login ?></h1>
@@ -71,21 +71,21 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <ul class="nav side-menu">
                       <li><a href="<?php echo site_url('Admin');?>">><i class="fa fa-wrench"></i> Page Administrateur</a></li>
-                      
+
                   </ul>
-                 
+
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -99,7 +99,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -108,7 +108,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -121,7 +121,7 @@
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        
+
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -131,11 +131,11 @@
                         </span>
                       </a>
                     </li>
-                    
-                    
+
+
                     <li>
                       <a>
-                        
+
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -160,7 +160,7 @@
           </div>
         </div>
         <!-- /top navigation -->
-        
+
 <!--JE COMMENCE A MODIFIER ICI -->
 
 
@@ -204,7 +204,7 @@
 foreach ($zoneEditeur as $item) {
     echo <<<EOT
     <tr>
-        <td>$item->nomEditeur</td>
+        <td><a href="$lien">$item->nomEditeur</td>
         <td>$item->nbDemiTable</td>
 
      </tr>
@@ -235,16 +235,16 @@ EOT;
 
 
         <!-- /page content -->
-		        
+
         </div>
         <!-- footer content -->
         <footer>
-          
+
           <div class="clearfix"></div>
         </footer>
-		
+
         <!-- /footer content -->
-		
+
 
     <!-- jQuery -->
     <script src="<?php echo base_url() ?>gentelella-master/vendors/jquery/dist/jquery.min.js"></script>
