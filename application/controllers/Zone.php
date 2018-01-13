@@ -14,6 +14,7 @@ class Zone extends CI_Controller {
                     if(!($this->session->has_userdata('festival'))) {
                         $festival = $this->festival_model->getLast();
                         $this->session->festival = $festival[0]->numFestival;
+                        $this->session->anneeFestival = $festival[0]->année;
                        
                     }
                 }

@@ -13,7 +13,9 @@ class Suivi extends CI_Controller {
                  else {
                     if(!($this->session->has_userdata('festival'))) {
                         $festival = $this->festival_model->getLast();
+                     
                         $this->session->festival = $festival[0]->numFestival;
+                        $this->session->anneeFestival = $festival[0]->année;
                        
                     }
                 }
