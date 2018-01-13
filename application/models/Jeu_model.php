@@ -35,7 +35,7 @@ class Jeu_model extends CI_Model{
                     ->result();
   }
 
-   public function selectByEditeurALL($id, $fest) {
+   public function selectByEditeurALL($id) {
     $this->load->database('default');
 
     return $this->db->select('*')

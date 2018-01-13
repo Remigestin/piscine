@@ -7,11 +7,12 @@ class Suivi_model extends CI_Model {
     
     protected $table = 'suivi';
     
-    public function selectAll() {
+    public function selectAll($festival) {
         $this->load->database('default');
         
         return $this->db->select('*')
                         ->from($this->table)
+                        ->where('numFestival', $festival)
                         ->get()
                         ->result();
                 

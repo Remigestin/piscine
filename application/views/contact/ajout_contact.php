@@ -218,6 +218,7 @@
                           <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                         </div>
                       </div>
+                       
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Mail</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">

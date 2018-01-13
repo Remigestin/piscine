@@ -25,7 +25,7 @@ class Suivi extends CI_Controller {
 	public function index()
 	{
                 
-                $data['suivi'] = $this->suivi_model->selectAll();
+                $data['suivi'] = $this->suivi_model->selectAll($this->session->festival);
                 $data['login'] = $this->session->login;
                 foreach($data['suivi'] as $item) {
                     

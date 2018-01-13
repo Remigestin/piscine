@@ -170,16 +170,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h1>Ajout d'un jeu </h1>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -219,17 +210,10 @@
                                                             <input class="form-control" name="nomjeu" >
                                                         </div>
                                                     </div>
-                                                    
-                                               
-                                                    <div class="form-group">
-                                                        <label for="mail" class="col-sm-3 control-label"> Type :</label>
-                                                        <div class="col-sm-6">
-                                                            <input type="email" class="form-control" name="type">
-                                                        </div>
-                                                    </div>
+                                                
                                                     
                                                     <div class="form-group">
-                                                                <label for="Type de jeu" class="col-sm-3 control-label">Origine</label>
+                                                                <label class="col-sm-3 control-label">Type</label>
                                                                 <div class="col-sm-6">
                                                                     <select class="form-control">
                                                                         <option>Ambiance</option>
@@ -239,14 +223,12 @@
                                                                         <option>Spéciaux</option>
                                                                         <option>Expert</option>
                                                                         <option>Classique</option>
-                                                                           
+                                                                    </select>
                                                                         
                                                                 </div>
+                                                                
                                                     </div>
-
-                
-                                         
-                                        
+                                                 
 
                                      
                                         <div class="row">
