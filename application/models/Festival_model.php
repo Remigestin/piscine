@@ -2,6 +2,26 @@
 
 class Festival_model extends CI_Model{
 
+    
+  public function selectAll() {
+      $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from('festival')
+                    ->get()
+                    ->result();
+  }
+  
+  public function selectById($id) {
+      $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from('festival')
+                    ->where('numFestival', $id)
+                    ->get()
+                    ->result();
+  }
+  
   public function getLast() {
       $this->load->database('default');
 

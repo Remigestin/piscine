@@ -177,7 +177,37 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                      
+                      <p class="text-muted font-13 m-b-30">
+                     Festival courant :
+                    </p>
+                    <div class = "row ">
+                    <div class = "col-md-1">
+                        <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
+                      <select name="festival" class="form-control" required>
+                    <?php
+                        foreach ($festival as $item) {
+                            $selected = "";
+                            
+                                if ($item->numFestival == $this->session->festival) {
+                                    $selected = "selected";
+                                }
+                            
+                            echo "<option  $selected value = $item->numFestival>$item->année </option>";
+                        }
+                        ?>
+                    </select>
+                            </div>
+                            <div class = "col-md-1">
+                  <button type = "submit" class="btn btn-default submit">Modifier</button>
+               
+              </div>    
+                        </form>
+                    
+                    </div>
+                    <br>
                     <p class="text-muted font-13 m-b-30">
+                        
                      Informations générales:
                     </p>
         </div>
