@@ -62,6 +62,8 @@ class Editeur extends CI_Controller {
         $nomZone = Editeur::nomZone($zone[0]);
         $item->nomZone = $nomZone;
         
+        $item->nbTable = $item->nbDemiTable / 2;
+        
     }
    
     //Pour les variables booleennes, on remplace les 1 par des Oui et des 0 par des Non
