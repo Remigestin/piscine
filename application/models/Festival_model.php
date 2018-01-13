@@ -5,7 +5,7 @@ class Festival_model extends CI_Model{
   public function getLast() {
       $this->load->database('default');
 
-    return $this->db->select('numFestival')
+    return $this->db->select('*')
                     ->from('festival')
                     ->order_by('numFestival', 'desc')
                     ->limit(1)
