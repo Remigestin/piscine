@@ -6,7 +6,7 @@ class Jeu extends CI_Controller {
       //	Obligatoire
       parent::__construct();
           if (!($this->session->has_userdata('login'))) {
-           
+
                     header('location: ' . site_url('login/errorSession'));
                 }
                  else {
@@ -14,14 +14,18 @@ class Jeu extends CI_Controller {
                         $festival = $this->festival_model->getLast();
                         $this->session->festival = $festival[0]->numFestival;
                         $this->session->anneeFestival = $festival[0]->année;
-                       
+
                     }
                 }
 
   }
 
   public function index(){
-    $data['jeu'] = $this->jeu_model->getJeu($this->session->festival);
+    $festival = $this->session->festival;
+
+    $data['jeu'] = $this->jeu_model->getJeu($festival);
+    $data['jeu1'] = $this->admin_model->getDataJeux($festival);
+    $data['jeu2'] = $this->admin_model->getDataJeux2($festival);
     $data['login'] = $this->session->login;
     $this->load->view('jeu/liste_jeux', $data);
   }

@@ -62,6 +62,4 @@ class Jeu_model extends CI_Model{
                     ->result();
   }
 
-
-
 }

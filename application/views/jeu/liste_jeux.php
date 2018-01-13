@@ -176,6 +176,13 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
+                      <ul>
+                          <li>Nombre de jeux attendus : <?php foreach($jeu1 as $temp);echo $temp ;?></li>
+                          <li>Nombre de jeux reçus : <?php foreach($jeu2 as $temp);echo $temp ;?></li>
+                      </ul>
+                      Pour plus d'informations <a href="<?php echo site_url('Admin'); ?>">cliquez ici</a>
+                    </p>
+                    <p class="text-muted font-13 m-b-30">
                      Liste de jeux:
                     </p>
                     <table id="datatablePiscine" class="table table-striped table-bordered">
