@@ -23,7 +23,11 @@ class Admin extends CI_Controller {
 public function index()
 	{
 	$festival = $this->session->festival;
+        
 	$data['login'] = $this->session->login;
+        
+        $data['festival'] = $this->festival_model->selectAll();
+                
 	$data['editeur1'] = $this->admin_model->getDataEditeur1($festival);
 	$data['editeur2'] = $this->admin_model->getDataEditeur2($festival);
 	$data['editeur3'] = $this->admin_model->getDataEditeur3($festival);
@@ -42,4 +46,11 @@ public function index()
 
 	$this->load->view('admin/page_admin', $data);
 	}
+        
+        public function changeFest() {
+            $festival = $this->festival_model->selectById($_POST['festival']);
+            $this->session->festival = $festival[0]->numFestival;
+            $this->session->anneeFestival = $festival[0]->année;
+            header('location:  ' . site_url('admin'));
+        }
 }
