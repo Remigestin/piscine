@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> Projet Piscine!  </title>
+    <title> Projet Piscine! | </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,11 +24,9 @@
     <link href="<?php echo base_url() ?>gentelella-master/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    
+
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>gentelella-master/build/css/custom.min.css" rel="stylesheet">
-    
-    
 
     <!-- Datatables -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -44,7 +42,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a class="site_title"><i class="fa fa-home"></i> <span>Festival du Jeu!</span></a>
+              <a class="site_title"><i class="fa fa-home"></i> <span>Festival du Jeu !</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -53,7 +51,6 @@
             <div class="profile clearfix">
               
               <div class="profile_info">
-                
                 <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
               </div>
             </div>
@@ -86,7 +83,7 @@
 
             </div>
             <!-- /sidebar menu -->
-            
+
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               
@@ -96,11 +93,10 @@
               </a>
             </div>
             <!-- /menu footer buttons -->
-            
           </div>
         </div>
 
-         <!-- top navigation -->
+        <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
@@ -108,7 +104,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src alt=""><?php echo $this->session->anneeFestival ?>
+                    <img src alt=""><?php echo $this->session->login ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -167,89 +163,117 @@
         <!-- /top navigation -->
 
         <!-- page content -->
+       
         <div class="right_col" role="main">
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3><?php echo $editeur[0]->nomEditeur ?></h3>
-                    
+                    <h1>Ajout d'un jeu </h1>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      <div class="row">
-                           <div class="col-md-2 ">
-                      <h2>Adresse <a class="glyphicon glyphicon-edit" href=""></a></h2>
-                     <ul>
-                         <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
-                         <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>
-                         <li>Code Postale : <?php echo $editeur[0]->cpEditeur ?></li>
-                     </ul>
-                           </div>
-                      </div>
-                         
-                          
-                                      
-                      <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
-                      
-                      <div class="row">
-                       <?php
-                          $i = 1;
-                          foreach($contact as $item) {
-                              echo <<<EOT
-                          
-                          <div class="col-md-2">
-                              <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2>
-                     <ul>
-                         <li>Nom : $item->nomContact
-                         <li>Prénom : $item->prenomContact 
-                         <li>Mail : $item->mailContact 
-                         <li>Téléphone : $item->telContact 
-                     </ul>
-                          </div>
-EOT;
-                              $i++;
-                                      }
-                                      
-                                      ?>
-                      </div>
-                      
-
-                    <h2>Jeux   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+                    <div class="col-lg-10 col-md-9">
+<!--                        <div class="col-lg-1"><img src="img/ajout_contact.png" alt=""></div>-->
                     
-                    <div class="col-md-6 ">
-                    <table id="datatableJeu" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Nom du Jeu</th>
-                          <th>Type de Jeu</th>
-                          
-                        </tr>
-                      </thead>
-                        <?php
-foreach ($jeu as $item) {
-    echo <<<EOT
-    <tr>
+                </div>
+                
+            
+        
+        
+        <div class="container">
+            <div class="row">
+                    
+                    <div class="tableaudebord">
+                        <div class="contact_container">
+                            <div class="row">
+                               
+                            </div> 
+                        </div>
 
-        <td>$item->nomJeu</td>
-        <td>$item->libelleType</td>
-     </tr>
-EOT;
-}
-?>
-                    </table>
-                  </div>
-                  </div>
-            </div>
+                        <div class='container'>
+                            <div class='row'>
+
+
+                                
+                                    <form class="form-horizontal" role="form">
+                                        
+                                       
+                                        <div class='row'>
+                                            
+                                                <div class="col-lg-6">
+                                                    <!--<form class="form-horizontal" role="form">-->
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"> Nom du jeu :</label>
+                                                        <div class="col-sm-6">
+                                                            <input class="form-control" name="nomjeu" >
+                                                        </div>
+                                                    </div>
+                                                    
+                                               
+                                                    <div class="form-group">
+                                                        <label for="mail" class="col-sm-3 control-label"> Type :</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" name="type">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                                <label for="Type de jeu" class="col-sm-3 control-label">Origine</label>
+                                                                <div class="col-sm-6">
+                                                                    <select class="form-control">
+                                                                        <option>Ambiance</option>
+                                                                        <option>Famille</option>
+                                                                        <option>Strategie</option>
+                                                                        <option>Enfant</option>
+                                                                        <option>Spéciaux</option>
+                                                                        <option>Expert</option>
+                                                                        <option>Classique</option>
+                                                                           
+                                                                        
+                                                                </div>
+                                                    </div>
+
+                
+                                         
+                                        
+
+                                     
+                                        <div class="row">
+                                            <div >
+                                                <div class="boutton">
+                                       
+                                                    <div class="col-lg-3 col-lg-offset-1 ">
+                                                        <button name="submit" id="submit" type="submit" value="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span>Enregistrer le jeu <span class="glyphicon glyphicon-chevron-right"></span></button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+						 </div>
+						  </div>
+						   </div>
+        
         </div>
 
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          
-          <div class="clearfix"></div>
-        </footer>
+        
         <!-- /footer content -->
       </div>
     </div>
@@ -313,24 +337,9 @@ EOT;
     <script src="<?php echo base_url() ?>gentelella-master/build/js/custom.min.js"></script>
     <script>
         $(document).ready(function() {
-               $('#datatableJeu').DataTable();
+               $('#datatablePiscine').DataTable();
         } );
 </script>
-    <?php 
-    $i = 1;
-foreach ($reservation as $item) {
-    echo <<<EOT
-    <script>
-        $(document).ready(function() {
-               $('#datatablePiscine$i').DataTable();
-        } );
-</script>
-EOT;
-    $i++;
-}
-
-    ?>
-    
 
   </body>
 </html>
