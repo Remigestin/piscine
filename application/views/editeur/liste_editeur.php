@@ -175,6 +175,7 @@
                     <p class="text-muted font-13 m-b-30">
                      Ceci est la table des éditeurs. 
                     </p>
+                    <button onclick="location.href = '<?php echo site_url('editeur/creer')?>'" class="btn btn-default" type="button">Ajouter</button>
                     <table id="datatablePiscine" class="table table-striped table-bordered">
                       <thead>
                         <tr>

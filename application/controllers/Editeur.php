@@ -96,6 +96,79 @@ class Editeur extends CI_Controller {
     $this->load->view('editeur/fiche2_editeur', $data);
   }
   
+  
+  
+  
+  public function creer(){
+     
+     $data['action'] = "create";
+     $this->load->view('editeur/ajout_editeur', $data);
+     
+  }
+  
+  public function create() {
+      $data = array(
+            "nomEditeur" => htmlspecialchars($_POST['nomEditeur']),
+            "rueEditeur" => htmlspecialchars($_POST['rueEditeur']),
+            "villeEditeur" => htmlspecialchars($_POST['villeEditeur']),
+            "cpEditeur" => htmlspecialchars($_POST['cpEditeur']),
+        );
+      
+      $this->editeur_model->insert($data);
+      
+       $editeur = $this->editeur_model->getLast();
+       $id = $editeur[0]->numEditeur;
+       header('location:  ' . site_url("editeur/fiche2/$id"));
+       
+      
+     
+  }
+  
+  public function modifier($id) {
+      $data['editeur'] = $this->editeur_model->selectById($id);
+      $data['action'] = "edit";
+      $this->load->view('editeur/ajout_editeur',$data);
+  }
+  
+  public function edit() {
+      
+       $data = array(
+            "nomEditeur" => htmlspecialchars($_POST['nomEditeur']),
+            "rueEditeur" => htmlspecialchars($_POST['rueEditeur']),
+            "villeEditeur" => htmlspecialchars($_POST['villeEditeur']),
+            "cpEditeur" => htmlspecialchars($_POST['cpEditeur']),
+        );
+     $id = $_POST['numEditeur'];
+      
+      $this->editeur_model->update($id, $data);
+      header('location:  ' . site_url("editeur/fiche2/$id"));
+      
+  }
+  
+  public function delete($id) {
+      $data['editeur'] = $this->editeur_model->selectById($id);
+      $this->editeur_model->delete($id);
+      header('location:  ' . site_url("editeur"));
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   public function nomZone($zone) {
         
         

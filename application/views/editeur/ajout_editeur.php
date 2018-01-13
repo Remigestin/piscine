@@ -198,32 +198,34 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left input_mask">
+                    <form class="form-horizontal form-label-left input_mask" method='post' action="<?php echo site_url("editeur/$action") ?>">
 
 							<!-- Zones de texte -->
+                                                        
+                      <input name="numEditeur" type="hidden" <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->numEditeur . "\""?>">                                 
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Nom</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control">
+                          <input <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->nomEditeur . "\""?> name="nomEditeur" type="text" class="form-control">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Rue</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control">
+                          <input <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->rueEditeur . "\""?>  name="rueEditeur" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Ville</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control">
+                          <input <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->villeEditeur . "\""?> name="villeEditeur" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Code Postale</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control">
+                          <input <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->cpEditeur . "\""?>name="cpEditeur" type="text" class="form-control">
                         </div>
                       </div>
 
@@ -232,9 +234,9 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <button type="button" class="btn btn-primary">Annuler</button>
-						   <button class="btn btn-primary" type="reset">Recommencer</button>
+                          <button class="btn btn-primary" type="reset">Recommencer</button>
                           <button type="submit" class="btn btn-success">Envoyer</button>
+                          
                         </div>
                       </div>
 

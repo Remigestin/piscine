@@ -173,13 +173,14 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h3><?php echo $editeur[0]->nomEditeur ?></h3>
+                    <?php  $lienDelete = site_url("editeur/delete/".$editeur[0]->numEditeur); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Supprimer</button>"; ?>
                     
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                       <div class="row">
                            <div class="col-md-2 ">
-                      <h2>Adresse <a class="glyphicon glyphicon-edit" href=""></a></h2>
+                               <h2>Adresse <a class="glyphicon glyphicon-edit" href="<?php $id = $editeur[0]->numEditeur; echo site_url("editeur/modifier/$id")?>"></a></h2>
                      <ul>
                          <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
                          <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>

@@ -40,6 +40,49 @@ class Editeur_model extends CI_Model {
                 
     }
     
+    public function getLast() {
+      $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from($this->table)
+                    ->order_by('numEditeur', 'desc')
+                    ->limit(1)
+                    ->get()
+                    ->result();
+  }
+  
+  public function insert($data) {
+    $this->load->database('default');
+
+    
+        $this->db->set('nomEditeur', $data['nomEditeur'])
+                ->set('rueEditeur', $data['rueEditeur'])
+                ->set('villeEditeur', $data['villeEditeur'])
+                ->set('cpEditeur', $data['cpEditeur'])
+                ->insert($this->table);
+  }
+  
+  public function update($id, $data) {
+        $this->load->database('default');
+
+        $this->db->set('nomEditeur', $data['nomEditeur'])
+                ->set('rueEditeur', $data['rueEditeur'])
+                ->set('villeEditeur', $data['villeEditeur'])
+                ->set('cpEditeur', $data['cpEditeur']);
+                 
+        
+        $this->db->where('numEditeur', (int)$id);
+        return $this->db->update($this->table);
+        
+    }
+  
+  public function delete($id) {
+        $this->load->database('default');
+        
+        return $this->db->where('numEditeur', (int) $id)
+			->delete($this->table);
+    }
+    
 }
 /* 
  * To change this license header, choose License Headers in Project Properties.
