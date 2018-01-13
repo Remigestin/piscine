@@ -204,7 +204,7 @@
 foreach ($zoneEditeur as $item) {
     echo <<<EOT
     <tr>
-        <td><a href="$lien">$item->nomEditeur</td>
+        <td>$item->nomEditeur</td>
         <td>$item->nbDemiTable</td>
 
      </tr>
