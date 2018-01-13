@@ -1,0 +1,21 @@
+tr{
+     background-color: white;
+}
+
+.tab_click:hover {
+    background-color: #cccccc;
+     cursor:  pointer;
+     opacity: 1;
+}
+
+span.glyphicon-home {
+    font-size: 200%;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
