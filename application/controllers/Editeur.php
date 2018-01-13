@@ -18,6 +18,14 @@ class Editeur extends CI_Controller {
                 }
 
   }
+  
+  public function index() {
+      
+        $data['editeur'] = $this->editeur_model->selectAll();
+        $data['login'] = $this->session->login;
+       
+        $this->load->view('editeur/liste_editeur', $data);
+  }
 
   public function fiche($id){
     $festival = $this->session->festival;
@@ -69,6 +77,20 @@ class Editeur extends CI_Controller {
     $data['jeu'] = $this->jeu_model->selectByEditeurALL($id);
     
     $this->load->view('editeur/fiche_editeur', $data);
+  }
+  
+   public function fiche2($id){
+    
+    $data['login'] = $this->session->login;
+    $data['editeur'] = $this->editeur_model->selectById($id);
+    $data['contact'] = $this->contact_model->selectByEditeur($id);
+   
+    
+    
+    //On récupère tous les jeux de l'editeur indépendamment du festival
+    $data['jeu'] = $this->jeu_model->selectByEditeurALL($id);
+    
+    $this->load->view('editeur/fiche2_editeur', $data);
   }
   
   public function nomZone($zone) {
