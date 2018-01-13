@@ -20,7 +20,7 @@ class Jeu_model extends CI_Model{
                     ->get()
                     ->result();
   }
-  
+
   public function selectByEditeur($id, $fest) {
     $this->load->database('default');
 
@@ -34,8 +34,8 @@ class Jeu_model extends CI_Model{
                     ->get()
                     ->result();
   }
-  
-   public function selectByEditeurALL($id) {
+
+   public function selectByEditeurALL($id, $fest) {
     $this->load->database('default');
 
     return $this->db->select('*')
@@ -45,7 +45,7 @@ class Jeu_model extends CI_Model{
                     ->get()
                     ->result();
   }
-  
+
    public function selectByReservation($id, $fest) {
     $this->load->database('default');
 
