@@ -29,10 +29,13 @@ class Editeur extends CI_Controller {
   }
 
   public function fiche($id){
-    
+
     $festival = $this->session->festival;
+
     $data['charges']=$this->editeur_model->charges($id,$festival);
     $data['produits']=$this->editeur_model->produits($id,$festival);
+
+    $data['resultat']=(($data['produits'])['prix'])-($data['charges']['temp']);
 
 
     $festival = $this->session->festival;
@@ -50,14 +53,14 @@ class Editeur extends CI_Controller {
     $data['suivi'][0]->facture = $this->utile->OuiNon($data['suivi'][0]->facture);
     $data['suivi'][0]->annule = $this->utile->OuiNon($data['suivi'][0]->annule);
     $data['suivi'][0]->reponse = $this->utile->OuiNon($data['suivi'][0]->reponse);
-    
+
     $data['zone'] = $this->zone_model->selectAllNonPrise($data['editeur'][0]->numEditeur, $festival);
     foreach($data["zone"] as $item) {
         $nomZone = Editeur::nomZone($item);
         $item->nomZone = $nomZone;
     }
-    
-    
+
+
 
 
     $data['reservation'] = $this->reservation_model->selectByEditeur($id, $festival);
@@ -136,13 +139,13 @@ class Editeur extends CI_Controller {
         );
 
       $this->editeur_model->insert($data);
-      
+
       $editeur = $this->editeur_model->getLast();
        $id = $editeur[0]->numEditeur;
-       
+
       $this->zone_model->insertEditeur($id);
 
-       
+
 
        header('location:  ' . site_url("editeur/fiche2/$id"));
 
