@@ -77,7 +77,7 @@
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
-                      <li><a href="<?php echo site_url('Admin'); ?>">Page Administrateur</a></li>
+                      <li><a href="<?php echo site_url('Admin'); ?>">Informations générles</a></li>
 
                     </li>
 
@@ -118,48 +118,7 @@
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6 notifs </span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
 
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-
-
-                    <li>
-                      <a>
-
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
               </ul>
             </nav>
           </div>
@@ -183,8 +142,14 @@
                      <ul>
                          <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
                          <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>
-                         <li>Code Postale : <?php echo $editeur[0]->cpEditeur ?></li>
+                         <li>Code Postal : <?php echo $editeur[0]->cpEditeur ?></li>
                      </ul>
+                     <h2>Frais :</h2>
+                     <ul>
+                        <li>Charges / Frais de renvoi  : <?php foreach($charges as $item) echo $item ;?> €</li>
+                        <li>Produits / Prix de la réservation  : <?php foreach($produits as $item) echo $item ?> €</li>
+                        <li>Résultat <?php echo $resultat ?> €</li>
+                      </ul>
                            </div>
                       </div>
                          <?php
@@ -270,20 +235,67 @@ EOT;
                                  </form>
                              </div>
                          </div>
-                      <h2>Réservations   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+
+                      <h2>Réservations</h2>
+                      <form method="post" action="<?php echo site_url("reservation/create") ?>">
+                          <input name="numEditeur" type="hidden" value=<?php echo $editeur[0]->numEditeur ?>>
+                          <div class="col-md-1">
+                        <select name="numZone" class="form-control" required>
+                                <?php
+
+                                foreach($zone as $item) {
+                                    echo "<option value = $item->numZone>$item->nomZone</option>";
+                                }
+
+                                ?>
+                        </select>
+                          </div>
+                          <button type = "submit" class="btn btn-default submit">Créer Réservation</button>
+                      </form>
+                      <br>
                       <div class="row x_panel">
                         <br>
                           <ul>
                             <?php
                             $i = 1;
 foreach ($reservation as $item) {
+    $idRes = $item->numReservation;
+    $lien = site_url("concerner/creer");
+    $lien2 = site_url("editeur/nbTable");
+    $lienDelete = site_url("reservation/delete/$idRes");
+    $idEditeur= $editeur[0]->numEditeur;
     echo <<<EOT
         <div class="row x_panel">
-        <li><h2>Reservation n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2></li>
+        <li><h2>Reservation n°$i <a class="glyphicon glyphicon-remove-circle" href="$lienDelete"></a></h2></li>
         <ul>
-            <li>Nombre de tables  : $item->nbTable </li>
+            <form method="post" action=$lien2>
+            <input name="numReservation" type="hidden" value=$item->numReservation>
+            <input name="numEditeur" type="hidden" value=$idEditeur>
+            <li>Nombre de tables  : <input name = "nbTable" type="number" value=$item->nbTable></input> <button type = "submit" class="btn btn-default submit">Modifier</button></li>
             <li>Zone : $item->nomZone </li>
+            </form>
         </ul>
+            <br>
+            <form method='post' action=$lien>
+            <input name="numReservation" type="hidden" value=$item->numReservation>
+            <div class="col-md-2">
+            <select name="numJeu" class="form-control" required>
+EOT;
+    foreach ($jeuNotInReservation[$i-1] as $item3) {
+
+          echo "<option value = $item3->numJeu>$item3->nomJeu</option>";
+    }
+
+
+    echo <<<EOT
+
+
+             </select>
+            </div>
+            <div class = "col-md-1">
+              <button type = "submit" class="btn btn-default submit">Ajouter</button>
+            </div>
+            </form>
         <br>
 
              <table id="datatablePiscine$i" class="table table-striped table-bordered">
@@ -299,17 +311,22 @@ foreach ($reservation as $item) {
                           <th>Prototype</th>
                         </tr>
                       </thead>
-
-
 EOT;
 
 
 
+
+
+
 foreach ($jeuReservation[$i-1] as $item2) {
+    $idJeu = $item2->numJeu;
+    $idRes = $item2->numReservation;
+
+    $lien = site_url("concerner/modifier/$idJeu/$idRes");
     echo <<<EOT
     <tr>
 
-        <td>$item2->nomJeu</td>
+        <td><a href=$lien>$item2->nomJeu</a></td>
         <td>$item2->libelleType</td>
         <td>$item2->quantiteJeu</td>
         <td>$item2->arrive</td>

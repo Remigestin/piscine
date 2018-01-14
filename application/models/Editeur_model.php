@@ -83,6 +83,26 @@ class Editeur_model extends CI_Model {
 			->delete($this->table);
     }
 
+  public function produits($id,$festival) {
+            $this->load->database('default');
+         		$sql="select prix from editeur,suivi,festival,reservation where editeur.numEditeur=? and suivi.numEditeur=editeur.numEditeur and reservation.numEditeur=editeur.numEditeur and suivi.numFestival=festival.numFestival and festival.numFestival=?";
+         		$produits=$this->db->query($sql,array($id,$festival));
+            $produits= $produits->row_array();
+            if($produits==NULL){ $produits['prix']=0; return $produits;}
+         		else {return $produits; }
+          }
+
+        public function charges($id,$festival) {
+            $this->load->database('default');
+            $sql="select sum(prixRenvoi) as temp from editeur,suivi,festival,reservation,concerner
+             where editeur.numEditeur=? and suivi.numEditeur=editeur.numEditeur and suivi.numFestival=festival.numFestival and festival.numFestival=? and reservation.numFestival=festival.numFestival and reservation.numEditeur=editeur.numEditeur and concerner.numReservation=reservation.numReservation";
+         		$charges=$this->db->query($sql,array($id,$festival));
+            $charges=$charges->row_array();
+            if ($charges['temp']==NULL) { $charges['temp']=0 ; return $charges;}
+            else {return $charges;}
+        }
+
+
 }
 /*
  * To change this license header, choose License Headers in Project Properties.

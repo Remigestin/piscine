@@ -117,7 +117,7 @@
                   </ul>
                 </li>
 
-               
+
               </ul>
             </nav>
           </div>
@@ -139,11 +139,17 @@
                     <br>
                     <p class="text-muted font-13 m-b-30">
 
-                     Informations générales:
+                     Informations générales: 
                     </p>
         </div>
 
         <!-- /page content -->
+        <ul> Tables :
+                            <li>Nombres de tables prévu: <?php echo $table[0]/2;?></li>
+                            <li>Nombre de tables réservées: <?php  echo $table[1]/2 ;?></li>
+                            <li>Tables Restantes: <?php  echo $table[2]/2 ;?></li>
+
+                         </ul>
 		<ul> Editeurs:
                          <li>Nombre d'éditeurs total: <?php foreach($editeur1 as $temp);echo $temp ;?></li>
                          <li>Nombre d'éditeurs contactés : <?php foreach($editeur2 as $temp);echo $temp ;?></li>
@@ -171,12 +177,14 @@
                         Partie Modifications
                      </p>
                      <div class="row x_panel">
-                       <p class="text-muted font-13 m-b-30">
-                         Festival courant :
-                       </p>
-                       <div class = "row ">
-                       <div class = "col-md-2">
-                           <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
+                         <div class = "row ">
+                             <div class="form-group">
+                             <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12"> Festival courant</label>
+                       <div class="col-md-1 col-sm-9 col-xs-12">
+                       
+                          
+                           
                              <select name="festival" class="form-control" required>
                        <?php
                            foreach ($festival as $item) {
@@ -190,38 +198,69 @@
                            }
                            ?>
                             </select>
-                        </div>
+                           
+                       </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Modifier</button>
                         </div>
                       </form>
                     </div>
+                       </div>
+                       
 
                     <br />
                     <div class = "row ">
                       <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Nombre de Tables</label>
-                        <div class="col-md-3 col-sm-9 col-xs-12">
-                          <input name="nombreTable" type="text" class="form-control">
+                          <form method="post"action="<?php echo site_url("admin/nbTableMax")?>">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Nombre de Tables</label>
+                        <div class="col-md-1 col-sm-9 col-xs-12">
+                          <input name="nbTable" type="number" class="form-control" value="<?php echo $courant[0]->nbDemiTableTotal?>">
                         </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Modifier</button>
                         </div>
+                          </form>
                       </div>
                     </div>
 
                     <br />
                     <div class = "row ">
                       <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Ajouter Type Jeu</label>
-                        <div class="col-md-3 col-sm-9 col-xs-12">
-                          <input name="TypeJeu" type="text" class="form-control">
+                          <form method="post"action="<?php echo site_url("admin/ajoutType")?>">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Ajouter Type Jeu</label>
+                        <div class="col-md-1 col-sm-9 col-xs-12">
+                          <input name="libelleType" type="text" class="form-control">
                         </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Ajouter</button>
                         </div>
+                          </form>
                       </div>
                     </div>
+                    <br>
+                    
+                     <div class = "row ">
+                             <div class="form-group">
+                             <form method='post' action=<?php echo site_url("admin/deleteType") ?>>
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12"> Supprimer Type Jeu</label>
+                       <div class="col-md-1 col-sm-9 col-xs-12">
+                       
+                          
+                           
+                             <select name="numType" class="form-control" required>
+                       <?php
+                           foreach ($type as $item) {
+                               echo "<option  value = $item->numType>$item->libelleType </option>";
+                           }
+                           ?>
+                            </select>   
+                       </div>
+                        <div class = "col-md-1">
+                          <button type = "submit" class="btn btn-default submit">Supprimer</button> 
+                        </div>
+                      </form>
+                    </div>
+                 </div>
                   </div>
         <!-- footer content -->
         <footer>

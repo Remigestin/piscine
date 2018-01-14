@@ -104,5 +104,17 @@ class Jeu_model extends CI_Model{
         return $this->db->where('numJeu', (int) $id)
 			->delete($this->table);
     }
+    
+    public function selectNotInReservation($idRes, $idEditeur) {
+    $this->load->database('default');
+
+    return $this->db->select('jeu.numJeu, jeu.nomJeu')
+                    ->from('jeu')
+                    ->join('concerner', 'jeu.numJeu = concerner.numJeu', 'left')
+                    ->where('numEditeur', $idEditeur)
+                    ->where('numReservation is null',null, false)
+                    ->get()
+                    ->result();
+  }
 
 }

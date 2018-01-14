@@ -31,11 +31,19 @@ class Editeur extends CI_Controller {
   public function fiche($id){
 
     $festival = $this->session->festival;
+
+    $data['charges']=$this->editeur_model->charges($id,$festival);
+    $data['produits']=$this->editeur_model->produits($id,$festival);
+
+    $data['resultat']= ($data['produits']['prix']) - ($data['charges']['temp']);
+
+
+    $festival = $this->session->festival;
     $data['login'] = $this->session->login;
     $data['editeur'] = $this->editeur_model->selectById($id);
     $data['contact'] = $this->contact_model->selectByEditeur($id);
     $data['suivi'] = $this->suivi_model->selectByEditeur($id, $festival);
-    
+
     $this->load->library('utile');
 
     //Pour les variables booleennes, on remplace les 1 par des Oui et des 0 par des Non
@@ -46,16 +54,32 @@ class Editeur extends CI_Controller {
     $data['suivi'][0]->annule = $this->utile->OuiNon($data['suivi'][0]->annule);
     $data['suivi'][0]->reponse = $this->utile->OuiNon($data['suivi'][0]->reponse);
 
+    $data['zone'] = $this->zone_model->selectAllNonPrise($data['editeur'][0]->numEditeur, $festival);
+    foreach($data["zone"] as $item) {
+        $nomZone = Editeur::nomZone($item);
+        $item->nomZone = $nomZone;
+    }
+
+
+
 
     $data['reservation'] = $this->reservation_model->selectByEditeur($id, $festival);
 
     //Pour chaque réservation
     $data['jeuReservation'] = array();
+    $data['jeuNotInReservation'] = array();
     foreach ($data['reservation'] as $item) {
 
-        // on récupère les jeux correspondants et on récupère le nom de la zone
+
+        // on récupère les jeux correspondants à la reservation
         $tmp = $this->jeu_model->selectByReservation($item->numReservation, $festival);
+
         array_push($data['jeuReservation'], $tmp);
+
+        //on récupère les jeux de l'editeur qui ne sont pas dans la reservation
+        $tmp2 = $this->jeu_model->selectNotInReservation($item->numReservation, $id);
+        array_push($data['jeuNotInReservation'], $tmp2);
+
 
         //On récupère le nom de la zone
         $zone = $this->zone_model->selectById($item->numZone);
@@ -116,8 +140,18 @@ class Editeur extends CI_Controller {
 
       $this->editeur_model->insert($data);
 
+
        $editeur = $this->editeur_model->getLast();
        $id = $editeur[0]->numEditeur;
+
+
+      $editeur = $this->editeur_model->getLast();
+       $id = $editeur[0]->numEditeur;
+
+      $this->zone_model->insertEditeur($id);
+
+
+
 
        header('location:  ' . site_url("editeur/fiche2/$id"));
 
@@ -165,6 +199,15 @@ class Editeur extends CI_Controller {
 
 
 
+   public function nbTable() {
+       $nbTable = $_POST['nbTable'];
+       $nbDemiTable = $nbTable * 2;
+       $id = $_POST['numReservation'];
+       $editeur = $_POST['numEditeur'];
+       $this->reservation_model->update_table($id, $nbDemiTable);
+
+       header('location:  ' . site_url("editeur/fiche/$editeur"));
+   }
 
   public function nomZone($zone) {
 

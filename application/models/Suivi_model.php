@@ -38,13 +38,9 @@ class Suivi_model extends CI_Model {
       */
 
        $this->load->database('default');
-       return $this->db->select('editeur.numEditeur, editeur.nomEditeur')
-                       ->from('editeur')
-                       ->join('suivi', 'editeur.numEditeur = suivi.numEditeur','left')
-                       ->where('numSuivi is null', null, false)
-                       ->or_where('numFestival !=', $festival)
-                       ->get()
-                       ->result();
+               $sql = "select editeur.numEditeur, editeur.nomEditeur from editeur where editeur.numEditeur not in (select numEditeur from suivi,festival where festival.numFestival=? and suivi.numFestival=festival.numFestival)";
+               $res=$this->db->query($sql,$festival);
+               return $res->result() ;
    }
 
    public function insert($data){

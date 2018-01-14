@@ -14,6 +14,32 @@ public function selectById($id) {
                         ->result();
 
     }
+    
+public function insertEditeur($id) {
+    $this->load->database('default');
+
+    
+        $this->db->set('numEditeur', $id)
+                ->insert($this->table);
+  }
+  
+  public function insertType($id) {
+    $this->load->database('default');
+
+    
+        $this->db->set('numType', $id)
+                ->insert($this->table);
+  }
+    
+public function selectAllNonPrise($idEditeur, $fest) {
+        $this->load->database('default');
+
+        $sql = "select * from zone where numZone not in (select numZone from editeur,reservation, festival
+where editeur.numEditeur=? and editeur.numEditeur=reservation.numEditeur
+and festival.numFestival= ? and reservation.numFestival=festival.numFestival) and numZone not in (select numZone from zone where zone.numEditeur!=?)";
+        $res=$this->db->query($sql, array($idEditeur, $fest, $idEditeur));
+return $res->result() ;
+}
 
 public function getZoneEditeur() {
     $this->load->database('default');

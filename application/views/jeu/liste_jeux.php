@@ -76,7 +76,7 @@
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
-                      <li><a href="<?php echo site_url('Admin'); ?>">Page Administrateur</a></li>
+                      <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
 
                     </li>
 
@@ -116,48 +116,7 @@
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6 notifs </span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-
-
-                    <li>
-                      <a>
-
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+                
               </ul>
             </nav>
           </div>
@@ -182,9 +141,7 @@
                       </ul>
                       Pour plus d'informations <a href="<?php echo site_url('Admin'); ?>">cliquez ici</a>
                     </p>
-                    <p class="text-muted font-13 m-b-30">
-                     Liste de jeux:
-                    </p>
+                    
                     <table id="datatablePiscine" class="table table-striped table-bordered">
                       <thead>
                         <tr>
