@@ -15,6 +15,14 @@ public function selectById($id) {
 
     }
     
+public function insertEditeur($id) {
+    $this->load->database('default');
+
+    
+        $this->db->set('numEditeur', $id)
+                ->insert($this->table);
+  }
+    
 public function selectAllNonPrise($idEditeur, $fest) {
         $this->load->database('default');
 

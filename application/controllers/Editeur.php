@@ -137,9 +137,13 @@ class Editeur extends CI_Controller {
         );
 
       $this->editeur_model->insert($data);
-
-       $editeur = $this->editeur_model->getLast();
+      
+      $editeur = $this->editeur_model->getLast();
        $id = $editeur[0]->numEditeur;
+       
+      $this->zone_model->insertEditeur($id);
+
+       
 
        header('location:  ' . site_url("editeur/fiche2/$id"));
 
