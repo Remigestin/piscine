@@ -264,7 +264,7 @@ EOT;
 
                          <div class="row x_panel">
                              <div >
-                                 <form method="post" action="<?php $id = $suivi[0]->numSuivi; $editeur = $editeur[0]->numEditeur; echo site_url("editeur/commentaire/$id/$editeur")?>">
+                                 <form method="post" action="<?php $id = $suivi[0]->numSuivi; $idEditeur = $editeur[0]->numEditeur; echo site_url("editeur/commentaire/$id/$idEditeur")?>">
                                      <textarea name="commentaire"><?php echo $suivi[0]->commentaire ?></textarea>
                                      <button type = "submit" class="btn btn-default submit">Modifier</button>
                                  </form>
@@ -330,7 +330,7 @@ EOT;
                   </div>
 
 
-                    <h2>Jeux   <a class="glyphicon glyphicon-plus-sign" href="<?php $id = $editeur[0]->numEditeur; echo site_url("jeu/creer/$id/1")?>"></a></h2>
+                    <h2>Jeux   <a class="glyphicon glyphicon-plus-sign " href="<?php $id= $editeur[0]->numEditeur; echo site_url("jeu/creer/$id/1")?>" ></a></h2>
 
                     <div class="row x_panel">
                     <table id="datatableJeu" class="table table-striped table-bordered">
