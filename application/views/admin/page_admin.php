@@ -49,10 +49,10 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
                 <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
-                
+
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -71,31 +71,31 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
                       <li><a href="<?php echo site_url('Admin'); ?>">Page Administrateur</a></li>
-                      
+
                     </li>
-                  
-                 
+
+
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
-            
+
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
             <!-- /menu footer buttons -->
-            
+
           </div>
         </div>
 
@@ -103,7 +103,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -112,7 +112,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -125,7 +125,7 @@
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        
+
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -135,11 +135,11 @@
                         </span>
                       </a>
                     </li>
-                    
-                    
+
+
                     <li>
                       <a>
-                        
+
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -173,41 +173,13 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Page de gestion</h2>
-                    
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      
-                      <p class="text-muted font-13 m-b-30">
-                     Festival courant :
-                    </p>
-                    <div class = "row ">
-                    <div class = "col-md-1">
-                        <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
-                      <select name="festival" class="form-control" required>
-                    <?php
-                        foreach ($festival as $item) {
-                            $selected = "";
-                            
-                                if ($item->numFestival == $this->session->festival) {
-                                    $selected = "selected";
-                                }
-                            
-                            echo "<option  $selected value = $item->numFestival>$item->année </option>";
-                        }
-                        ?>
-                    </select>
-                            </div>
-                            <div class = "col-md-1">
-                  <button type = "submit" class="btn btn-default submit">Modifier</button>
-               
-              </div>    
-                        </form>
-                    
-                    </div>
                     <br>
                     <p class="text-muted font-13 m-b-30">
-                        
+
                      Informations générales:
                     </p>
         </div>
@@ -222,8 +194,8 @@
 						 <li>Nombre d'éditeurs ayant payé : <?php foreach($editeur6 as $temp);echo $temp ;?></li>
 
                      </ul>
-					 
-			<ul> Jeux: 
+
+			<ul> Jeux:
                          <li>Nombre de jeux attendus : <?php foreach($jeu1 as $temp);echo $temp ;?></li>
                          <li>Nombre de jeux reçus : <?php foreach($jeu2 as $temp);echo $temp ;?></li>
                          <li>Nombre de jeux à renvoyer: <?php foreach($jeu3 as $temp);echo $temp ;?></li>
@@ -231,14 +203,70 @@
 						 <li>Nombre de jeux prototypes : <?php foreach($jeu5 as $temp);echo $temp ;?></li>
                      </ul>
 
-			<ul> Frais: 
+			<ul> Frais:
                          <li>Prix des renvois : <?php foreach($frais1 as $temp);echo $temp ;?> euros</li>
                          <li>Somme des prix des réservations : <?php foreach($frais2 as $temp);echo $temp ;?> euros</li>
                      </ul>
+                     <br /> <br />
+                     <p class="text-muted font-13 m-b-30">
+                        Partie Modifications
+                     </p>
+                     <div class="row x_panel">
+                       <p class="text-muted font-13 m-b-30">
+                         Festival courant :
+                       </p>
+                       <div class = "row ">
+                       <div class = "col-md-2">
+                           <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
+                             <select name="festival" class="form-control" required>
+                       <?php
+                           foreach ($festival as $item) {
+                               $selected = "";
 
+                                   if ($item->numFestival == $this->session->festival) {
+                                       $selected = "selected";
+                                   }
+
+                               echo "<option  $selected value = $item->numFestival>$item->année </option>";
+                           }
+                           ?>
+                            </select>
+                        </div>
+                        <div class = "col-md-1">
+                          <button type = "submit" class="btn btn-default submit">Modifier</button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <br />
+                    <div class = "row ">
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Nombre de Tables</label>
+                        <div class="col-md-3 col-sm-9 col-xs-12">
+                          <input name="nombreTable" type="text" class="form-control">
+                        </div>
+                        <div class = "col-md-1">
+                          <button type = "submit" class="btn btn-default submit">Modifier</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <br />
+                    <div class = "row ">
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Ajouter Type Jeu</label>
+                        <div class="col-md-3 col-sm-9 col-xs-12">
+                          <input name="TypeJeu" type="text" class="form-control">
+                        </div>
+                        <div class = "col-md-1">
+                          <button type = "submit" class="btn btn-default submit">Ajouter</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         <!-- footer content -->
         <footer>
-        
+
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
