@@ -155,8 +155,9 @@
 
 
                                 
-                                    <form class="form-horizontal" role="form">
-                                        
+                                    <form class="form-horizontal" role="form" method='post' action="<?php echo site_url("concerner/$action") ?>">
+                                        <input name="numJeu" type="hidden" value="<?php echo $numJeu?>">
+                                       <input name="numReservation" type="hidden" value="<?php echo $numReservation?>">
                                        
                                         <div class='row'>
                                             
@@ -167,16 +168,16 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label"> Quantité :</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control" >
+                                                            <input <?php if (isset($concerner)) echo "value = \"" . $concerner[0]->quantiteJeu . "\""?>name = "quantiteJeu" type = "number" class="form-control" >
                                                         </div>
                                                     </div>
                                                     
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label"> Le jeu est-il arrivé?</label>
                                                         <div class="col-sm-6">
-                                                            <select class="form-control">
-                                                                <option>OUI</option>
-                                                                <option>NON</option>
+                                                            <select name="arrive" class="form-control">
+                                                                <option value=1>OUI</option>
+                                                                <option <?php if (isset($concerner)) if ($concerner[0]->arrive == 0) echo "Selected"?> value=0>NON</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -184,9 +185,9 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label">Faut-il le renvoyer?</label>
                                                         <div class="col-sm-6">
-                                                            <select class="form-control">
-                                                                <option>OUI</option>
-                                                                <option>NON</option>
+                                                            <select name= "aRenvoyer" class="form-control">
+                                                                <option value=1>OUI</option>
+                                                                <option <?php if (isset($concerner)) if ($concerner[0]->aRenvoyer == 0) echo "Selected"?> value=0>NON</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -194,16 +195,16 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label"> Prix de renvoi :</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control"  >
+                                                            <input <?php if (isset($concerner)) echo "value = \"" . $concerner[0]->prixRenvoi . "\""?> name="prixRenvoi" type="number" class="form-control">
                                                         </div>
                                                     </div>
                                                     
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label">Est-il surdimensionné?</label>
                                                         <div class="col-sm-6">
-                                                            <select class="form-control">
-                                                                <option>OUI</option>
-                                                                <option>NON</option>
+                                                            <select name="surdimension" class="form-control">
+                                                                <option value=1>OUI</option>
+                                                                <option <?php if (isset($concerner)) if ($concerner[0]->surdimension == 0) echo "Selected"?> value=0>NON</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -211,9 +212,9 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label">Est-il un prototype?</label>
                                                         <div class="col-sm-6">
-                                                            <select class="form-control">
-                                                                <option>OUI</option>
-                                                                <option>NON</option>
+                                                            <select name="prototype" class="form-control">
+                                                                <option value=1>OUI</option>
+                                                                <option <?php if (isset($concerner)) if ($concerner[0]->prototype == 0) echo "Selected"?> value=0>NON</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -224,16 +225,19 @@
                                             <div >
                                                 <div class="boutton">
                                        
-                                                    <div class="col-lg-3 col-lg-offset-1 ">
-                                                        <button name="submit" id="submit" type="submit" value="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span>Modifier le jeu <span class="glyphicon glyphicon-chevron-right"></span></button>
+                                                    <div class="col-lg-6 col-lg-offset-3 ">
+                                                        <button class="btn btn-primary" type="reset">Recommencer</button>
+                                                        <button type="submit" class="btn btn-success">Envoyer</button>
+                                                        <?php if ($action == "edit") { $lienDelete = site_url("concerner/delete/$numJeu/$numReservation"); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Retirer de la réservation</button>"; }?>
                                                     </div>
                                                 </div>
                                                 
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
+                     </form>
+
                         </div>
 						 </div>
 						  </div>

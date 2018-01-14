@@ -51,11 +51,20 @@ class Editeur extends CI_Controller {
     
     //Pour chaque réservation
     $data['jeuReservation'] = array();
+    $data['jeuNotInReservation'] = array();
     foreach ($data['reservation'] as $item) {
         
-        // on récupère les jeux correspondants et on récupère le nom de la zone
+        
+        // on récupère les jeux correspondants à la reservation
         $tmp = $this->jeu_model->selectByReservation($item->numReservation, $festival);
+       
         array_push($data['jeuReservation'], $tmp);
+        
+        //on récupère les jeux de l'editeur qui ne sont pas dans la reservation
+        $tmp2 = $this->jeu_model->selectNotInReservation($item->numReservation, $id);
+         var_dump($tmp2);
+        array_push($data['jeuNotInReservation'], $tmp2);
+       
         
         //On récupère le nom de la zone
         $zone = $this->zone_model->selectById($item->numZone);

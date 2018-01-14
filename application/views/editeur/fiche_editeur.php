@@ -277,6 +277,7 @@ EOT;
                             <?php
                             $i = 1;
 foreach ($reservation as $item) {
+    $lien = site_url("concerner/creer");
     echo <<<EOT
         <div class="row x_panel">
         <li><h2>Reservation n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2></li>
@@ -284,6 +285,27 @@ foreach ($reservation as $item) {
             <li>Nombre de tables  : $item->nbTable </li>
             <li>Zone : $item->nomZone </li>
         </ul>
+            <br>
+            <form method='post' action=$lien> 
+            <input name="numReservation" type="hidden" value=$item->numReservation>
+            <div class="col-md-2">
+            <select name="numJeu" class="form-control" required>
+EOT;
+    foreach ($jeuNotInReservation[$i-1] as $item3) {
+       
+          echo "<option value = $item3->numJeu>$item3->nomJeu</option>";
+    }
+    
+    
+    echo <<<EOT
+
+   
+             </select>
+            </div>
+            <div class = "col-md-1">
+              <button type = "submit" class="btn btn-default submit">Ajouter</button>
+            </div>
+            </form>
         <br>
 
              <table id="datatablePiscine$i" class="table table-striped table-bordered">
@@ -299,17 +321,22 @@ foreach ($reservation as $item) {
                           <th>Prototype</th>
                         </tr>
                       </thead>
-
-
 EOT;
 
 
 
+
+
+
 foreach ($jeuReservation[$i-1] as $item2) {
+    $idJeu = $item2->numJeu;
+    $idRes = $item2->numReservation;
+    
+    $lien = site_url("concerner/modifier/$idJeu/$idRes");
     echo <<<EOT
     <tr>
 
-        <td>$item2->nomJeu</td>
+        <td><a href=$lien>$item2->nomJeu</a></td>
         <td>$item2->libelleType</td>
         <td>$item2->quantiteJeu</td>
         <td>$item2->arrive</td>
