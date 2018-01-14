@@ -196,7 +196,7 @@ foreach ($zoneEditeur as $item) {
    echo <<<EOT
    <tr>
        <td><a href="$lien">$item->nomEditeur</td>
-       <td>$item->nbDemiTable</td>
+       <td>$item->nbTable</td>
        <td>$item->nbJeux</td>
        <td><a href="$lien2">Lien</a></td>
     </tr>
@@ -221,7 +221,7 @@ $lien = site_url("zone/fiche/$item->numZone");
    echo <<<EOT
    <tr>
        <td>$item->libelleType</td>
-       <td>$item->nbDemiTable</td>
+       <td>$item->nbTable</td>
        <td>$item->nbJeux</td>
        <td><a href="$lien">Lien </a></td>
     </tr>

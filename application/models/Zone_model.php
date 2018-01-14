@@ -23,8 +23,8 @@ from(select numZone,numEditeur from zone where zone.numType is NULL) as temp,res
 where reservation.numZone=temp.numZone and temp.NumEditeur=reservation.numEditeur and editeur.numEditeur=reservation.numEditeur
 */
 
-$sql="select distinct editeur.numEditeur, nomEditeur , nbDemiTable from(select numZone,numEditeur from zone where zone.numType is NULL) as temp,reservation, editeur
-where reservation.numZone=temp.numZone and temp.NumEditeur=reservation.numEditeur and editeur.numEditeur=reservation.numEditeur";
+$sql="select distinct editeur.numEditeur, nomEditeur , nbDemiTable, temp.numZone, sum(quantiteJeu) as nbJeux from(select numZone,numEditeur from zone where zone.numType is NULL) as temp,reservation, editeur,concerner
+where reservation.numZone=temp.numZone and temp.NumEditeur=reservation.numEditeur and editeur.numEditeur=reservation.numEditeur and reservation.numReservation=concerner.numReservation group by nomEditeur";
 $res=$this->db->query($sql);
 return $res->result() ;
 
@@ -37,8 +37,8 @@ select libelleType as Type, sum(nbDemiTable) as "Nombre de 1/2 tables"
 from(select numZone,numType from zone where zone.numEditeur is NULL) as temp,type,reservation
 where reservation.numZone=temp.numZone and temp.numType=type.numType group by libelleType
 */
-$sql="select libelleType, nbDemiTable from(select numZone,numType from zone where zone.numEditeur is NULL) as temp,type,reservation
-where reservation.numZone=temp.numZone and temp.numType=type.numType group by libelleType";
+$sql="select libelleType, nbDemiTable, temp.numZone, sum(quantiteJeu) as nbJeux from(select numZone,numType from zone where zone.numEditeur is NULL) as temp,type,reservation, concerner
+where reservation.numZone=temp.numZone and temp.numType=type.numType  and reservation.numReservation=concerner.numReservation group by libelleType";
 $res=$this->db->query($sql);
 return $res->result() ;
 
