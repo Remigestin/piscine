@@ -114,6 +114,189 @@
                   </ul>
                 </li>
 
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              
+
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2> Modifier le suivi</h2>
+                    
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <p>Cocher les cases a modifier : </p>
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask" method='post' action="<?php echo site_url("suivi/edit") ?>">
+
+							<!-- Zones de texte -->
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Contacté </label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="radio" name="contacte" value="1" id="oui" <?php if ($suivi[0]->contacte == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
+                          <input type="radio" name="contacte" value="0" id="non" <?php if ($suivi[0]->contacte == 0) echo " checked= \"checked\" " ?> /> <label for="non">Non</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">A repondu </label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="radio" name="repondu" value="1" id="oui" <?php if ($suivi[0]->reponse == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
+                          <input type="radio" name="repondu" value="0" id="non" <?php if ($suivi[0]->reponse == 0) echo " checked= \"checked\" " ?> /> <label for="non">Non</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Present </label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="radio" name="present" value="1" id="oui" <?php if ($suivi[0]->presentAuFestival == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
+                          <input type="radio" name="present" value="0" id="non" <?php if ($suivi[0]->presentAuFestival == 0) echo " checked= \"checked\" " ?> /> <label for="non">Non</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">A payé </label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="radio" name="paye" value="1" id="oui" <?php if ($suivi[0]->paiement == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
+                          <input type="radio" name="paye" value="0" id="non" <?php if ($suivi[0]->paiement == 0) echo " checked= \"checked\" " ?>/> <label for="non">Non</label>
+                      </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Annulé </label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="radio" name="annule" value="1" id="oui" <?php if ($suivi[0]->annule == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
+                          <input type="radio" name="annule" value="0" id="non" <?php if ($suivi[0]->annule == 0) echo " checked= \"checked\" " ?> /> <label for="non">Non</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Facturé</label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="radio" name="facture" value="1" id="oui" <?php if ($suivi[0]->facture == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
+                          <input type="radio" name="facture" value="0" id="non" <?php if ($suivi[0]->facture == 0) echo " checked= \"checked\" " ?> /> <label for="non">Non</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Dernière Date Contact</label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="date" name="derniereContact" value = "<?php echo $suivi[0]->derniereDateContact ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Dernière Date de Reponse</label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="date" name="derniereReponse" value = "<?php echo $suivi[0]->derniereDateReponse ?>">
+                        </div>
+                      </div>
+
+
+                      <input name="numEditeur" type="hidden" value="<?php echo $suivi[0]->numEditeur ?>">
+
+                     <!-- Boutons -->
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Envoyer</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/Flot/jquery.flot.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/moment/min/moment.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Datatables -->
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url() ?>gentelella-master/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="<?php echo base_url() ?>gentelella-master/build/js/custom.min.js"></script>
+    <script>
+        $(document).ready(function() {
+               $('#datatablePiscine').DataTable();
+        } );
+</script>
 
               </ul>
             </nav>
