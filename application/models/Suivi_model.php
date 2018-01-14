@@ -61,6 +61,16 @@ class Suivi_model extends CI_Model {
              ->set('numFestival', $data['numFestival'])
              ->insert($this->table);
    }
+   
+   public function update_commentaire($id, $commentaire) {
+        $this->load->database('default');
+
+        $this->db->set('commentaire', $commentaire);
+              
+        $this->db->where('numSuivi', (int)$id);
+        return $this->db->update($this->table);
+        
+    }
 
 }
 /*

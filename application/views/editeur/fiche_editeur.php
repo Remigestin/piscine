@@ -260,11 +260,14 @@ EOT;
                       </div>
 
                       <br>
-                      <h2>Commentaires <a class="glyphicon glyphicon-edit" href=""></a> </h2>
+                      <h2>Commentaires </h2>
 
                          <div class="row x_panel">
                              <div >
-                                 <li><?php echo $suivi[0]->commentaire ?></li>
+                                 <form method="post" action="<?php $id = $suivi[0]->numSuivi; $editeur = $editeur[0]->numEditeur; echo site_url("editeur/commentaire/$id/$editeur")?>">
+                                     <textarea name="commentaire"><?php echo $suivi[0]->commentaire ?></textarea>
+                                     <button type = "submit" class="btn btn-default submit">Modifier</button>
+                                 </form>
                              </div>
                          </div>
                       <h2>Réservations   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>

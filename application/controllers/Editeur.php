@@ -158,6 +158,11 @@ class Editeur extends CI_Controller {
       header('location:  ' . site_url("editeur"));
     }
   
+     public function commentaire($id, $editeur) {
+        $this->suivi_model->update_commentaire($id, $_POST['commentaire']);
+        header('location:  ' . site_url("editeur/fiche/$editeur"));
+   }
+
   
 
   
@@ -173,6 +178,7 @@ class Editeur extends CI_Controller {
             return $nom[0]->libelleType;
         }
     }
-
+    
+  
 
 }
