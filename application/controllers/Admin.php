@@ -41,8 +41,15 @@ public function index()
 	$data['jeu5'] = $this->admin_model->getDataJeux5($festival);
 	$data['frais1'] = $this->admin_model->getDataFrais1($festival);
 	$data['frais2'] = $this->admin_model->getDataFrais2($festival);
+<<<<<<< HEAD
   $data['table'] = $this->admin_model->getDataTable($festival);
   $data["courant"] = $this->festival_model->selectById($festival);
+=======
+        
+        $data["courant"] = $this->festival_model->selectById($festival);
+        $data["type"] = $this->type_model->selectAll();
+        
+>>>>>>> 3b46243ea70170af7ff7b0d29046145992d5d74e
 
 
 
@@ -54,7 +61,25 @@ public function index()
             $this->festival_model->update_nbTableMax($festival, $_POST['nbTable']);
              header('location:  ' . site_url("admin"));
         }
+<<<<<<< HEAD
 
+=======
+        
+        public function deleteType() {
+            $type = $_POST['numType'];
+            $this->type_model->delete($type);
+            header('location:  ' . site_url('admin'));
+        }
+        
+         public function ajoutType() {
+            $libelle = $_POST['libelleType'];
+            $this->type_model->insert($libelle);
+            $type = $this->type_model->getLast();
+            $this->zone_model->insertType($type[0]->numType);
+            header('location:  ' . site_url('admin'));
+        }
+        
+>>>>>>> 3b46243ea70170af7ff7b0d29046145992d5d74e
         public function changeFest() {
             $festival = $this->festival_model->selectById($_POST['festival']);
             $this->session->festival = $festival[0]->numFestival;

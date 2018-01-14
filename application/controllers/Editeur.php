@@ -35,7 +35,7 @@ class Editeur extends CI_Controller {
     $data['charges']=$this->editeur_model->charges($id,$festival);
     $data['produits']=$this->editeur_model->produits($id,$festival);
 
-    $data['resultat']=(($data['produits'])['prix'])-($data['charges']['temp']);
+    $data['resultat']= ($data['produits']['prix']) - ($data['charges']['temp']);
 
 
     $festival = $this->session->festival;
