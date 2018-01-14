@@ -91,7 +91,8 @@ class Suivi extends CI_Controller {
     $numEditeur = (int)$_POST['numEditeur'];
     $data['suivi'] = $this->suivi_model->selectByEditeur($numEditeur, $festival);
 
-    $data = array(
+    
+    $datatest = array(
       "numSuivi" =>$data['suivi'][0]->numSuivi,
       "commentaire" => $data['suivi'][0]->commentaire,
       "reponse" => (int)$_POST['repondu'],
@@ -101,13 +102,15 @@ class Suivi extends CI_Controller {
       "facture" => (int)$_POST['facture'],
       "contacte" => (int)$_POST['contacte'],
       "annule" => (int)$_POST['annule'],
-      "derniereDateContact" => (int)$_POST['derniereContact'],
-      "derniereDateReponse" => (int)$_POST['derniereReponse'],
+      "derniereDateContact" => $_POST['derniereContact'],
+      "derniereDateReponse" => $_POST['derniereReponse'],
       "numEditeur" => $data['suivi'][0]->numEditeur,
       "numFestival" => $data['suivi'][0]->numFestival
     );
+    $data['test'] = $datatest;
 
-    $this->suivi_model->update($suivi[0]->numSuivi, $data);
+    $this->suivi_model->update($data['suivi'][0]->numSuivi, $datatest);
+    
     header('location: ' . site_url("editeur/fiche/$numEditeur"));
 
   }

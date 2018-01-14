@@ -28,7 +28,7 @@ class Editeur extends CI_Controller {
         $this->load->view('editeur/liste_editeur', $data);
   }
 
-  public function fiche($id){
+  public function fiche($id, $var = 0){
 
     $festival = $this->session->festival;
 
