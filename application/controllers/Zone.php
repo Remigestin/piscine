@@ -20,6 +20,17 @@ class Zone extends CI_Controller {
                 }
 
         }
+    public function nomZone($zone) {
+
+              if ($zone->numType == NULL) {
+                  $nom = $this->editeur_model->selectById($zone->numEditeur);
+                  return $nom[0]->nomEditeur;
+              }
+              else if ($zone->numEditeur == NULL) {
+                  $nom = $this->type_model->selectById($zone->numType);
+                  return $nom[0]->libelleType;
+              }
+          }
 
   public function index(){
     $data['zoneEditeur'] = $this->zone_model->getZoneEditeur();
@@ -37,6 +48,11 @@ class Zone extends CI_Controller {
   public function fiche($id){
     $festival = $this->session->festival;
     $data['login'] = $this->session->login;
+
+    //On récupère le nom de la zone
+    $zone = $this->zone_model->selectById($id);
+    $nomZone = Zone::nomZone($zone[0]);
+    $data['nom']=$nomZone;
 
     $data['ficheZone'] = $this->zone_model->getficheZone($id,$festival);
     $this->load->view('zone/fiche_zone', $data);
