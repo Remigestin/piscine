@@ -49,7 +49,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
                 <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
               </div>
@@ -70,23 +70,23 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
                       <li><a href="<?php echo site_url('Admin'); ?>">Page Administrateur</a></li>
-                      
+
                     </li>
-                 
+
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -100,7 +100,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -109,7 +109,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -122,7 +122,7 @@
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        
+
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -132,11 +132,11 @@
                         </span>
                       </a>
                     </li>
-                    
-                    
+
+
                     <li>
                       <a>
-                        
+
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -173,7 +173,7 @@
                <div class="x_panel">
                  <div class="x_title">
                    <h2>Editeurs </h2>
-                
+
                    <div class="clearfix"></div>
                  </div>
                  <div class="x_content">
@@ -185,16 +185,20 @@
                        <tr>
                          <th>Nom Editeur</th>
                          <th>Nb Demi table</th>
+                         <th>Nb Jeux total</th>
+                         <th>Détails</th>
                        </tr>
                      </thead>
                        <?php
 foreach ($zoneEditeur as $item) {
   $lien = site_url("editeur/fiche/$item->numEditeur");
+  $lien2 = site_url("zone/fiche/$item->numZone");
    echo <<<EOT
    <tr>
        <td><a href="$lien">$item->nomEditeur</td>
        <td>$item->nbDemiTable</td>
-
+       <td>$item->nbJeux</td>
+       <td><a href="$lien2">Lien</a></td>
     </tr>
 EOT;
 }
@@ -207,15 +211,19 @@ EOT;
                        <tr>
                          <th>Zones-types</th>
                          <th>Nombre de Demi table</th>
+                         <th>Nombre de Jeux</th>
+                         <th>Détails</th>
                        </tr>
                      </thead>
                        <?php
 foreach ($zoneType as $item) {
+$lien = site_url("zone/fiche/$item->numZone");
    echo <<<EOT
    <tr>
        <td>$item->libelleType</td>
        <td>$item->nbDemiTable</td>
-
+       <td>$item->nbJeux</td>
+       <td><a href="$lien">Lien </a></td>
     </tr>
 EOT;
 }

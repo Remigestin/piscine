@@ -23,7 +23,7 @@ from(select numZone,numEditeur from zone where zone.numType is NULL) as temp,res
 where reservation.numZone=temp.numZone and temp.NumEditeur=reservation.numEditeur and editeur.numEditeur=reservation.numEditeur
 */
 
-$sql="select distinct editeur.numEditeur, nomEditeur , nbDemiTable from(select numZone,numEditeur from zone where zone.numType is NULL) as temp,reservation, editeur 
+$sql="select distinct editeur.numEditeur, nomEditeur , nbDemiTable from(select numZone,numEditeur from zone where zone.numType is NULL) as temp,reservation, editeur
 where reservation.numZone=temp.numZone and temp.NumEditeur=reservation.numEditeur and editeur.numEditeur=reservation.numEditeur";
 $res=$this->db->query($sql);
 return $res->result() ;
@@ -43,6 +43,28 @@ $res=$this->db->query($sql);
 return $res->result() ;
 
   }
+
+public function type_zone($id,$fes) {
+    //renvoi true si la zone est une zone TYPE et false si c'est une Zone EDITEUR
+    $sql="select temp.numZone from(select numZone,numType from zone where zone.numEditeur is NULL) as temp,reservation, festival where temp.numZone=? and reservation.numZone=temp.numZone and festival.numFestival = ? and festival.numFestival=reservation.numFestival";
+    $res=$this->db->query($sql,array($id,$fes));
+    $res=$res->num_rows() ;
+    return $res==0;
+  }
+
+
+public function getFicheZone($id,$f) {
+     $this->load->database('default');
+       $sql="select nomEditeur, nomJeu, quantiteJeu from zone,reservation, festival, jeu, concerner, editeur
+       where zone.numZone=? and reservation.numZone=zone.numZone and concerner.numReservation=reservation.numReservation and concerner.numJeu=jeu.numJeu and editeur.numEditeur=jeu.numEditeur and festival.numFestival = ? and festival.numFestival=reservation.numFestival";
+       $res=$this->db->query($sql,array($id,$f));
+       return $res->result() ;
+     }
+
+
+
+
+   }
 
 
 }
