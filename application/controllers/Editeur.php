@@ -62,7 +62,6 @@ class Editeur extends CI_Controller {
         
         //on récupère les jeux de l'editeur qui ne sont pas dans la reservation
         $tmp2 = $this->jeu_model->selectNotInReservation($item->numReservation, $id);
-         var_dump($tmp2);
         array_push($data['jeuNotInReservation'], $tmp2);
        
         
