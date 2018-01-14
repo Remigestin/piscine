@@ -118,7 +118,7 @@
                   </ul>
                 </li>
 
-                
+
               </ul>
             </nav>
           </div>
@@ -142,8 +142,14 @@
                      <ul>
                          <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
                          <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>
-                         <li>Code Postale : <?php echo $editeur[0]->cpEditeur ?></li>
+                         <li>Code Postal : <?php echo $editeur[0]->cpEditeur ?></li>
                      </ul>
+                     <h2>Frais :</h2>
+                     <ul>
+                        <li>Charges / Fraix de renvoi  : <?php foreach($charges as $item) echo $item ;?> €</li>
+                        <li>Produits / Prix de la réservation  : <?php foreach($produits as $item) echo $item ?> €</li>
+                        <li>Résultat <?php echo $produits['prix']-$charges['temp']?> €</li>
+                      </ul>
                            </div>
                       </div>
                          <?php
@@ -251,20 +257,20 @@ foreach ($reservation as $item) {
             </form>
         </ul>
             <br>
-            <form method='post' action=$lien> 
+            <form method='post' action=$lien>
             <input name="numReservation" type="hidden" value=$item->numReservation>
             <div class="col-md-2">
             <select name="numJeu" class="form-control" required>
 EOT;
     foreach ($jeuNotInReservation[$i-1] as $item3) {
-       
+
           echo "<option value = $item3->numJeu>$item3->nomJeu</option>";
     }
-    
-    
+
+
     echo <<<EOT
 
-   
+
              </select>
             </div>
             <div class = "col-md-1">
@@ -296,7 +302,7 @@ EOT;
 foreach ($jeuReservation[$i-1] as $item2) {
     $idJeu = $item2->numJeu;
     $idRes = $item2->numReservation;
-    
+
     $lien = site_url("concerner/modifier/$idJeu/$idRes");
     echo <<<EOT
     <tr>
@@ -335,7 +341,7 @@ EOT;
                       </thead>
                         <?php
 foreach ($jeu as $item) {
-    $id = $item->numJeu; 
+    $id = $item->numJeu;
     $lien = site_url("jeu/modifier/$id/1");
     echo <<<EOT
     <tr>
