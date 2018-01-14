@@ -176,6 +176,7 @@
                           <input type="radio" name="paye" value="1" id="oui" <?php if ($suivi[0]->paiement == 1) echo " checked= \"checked\" " ?> /> <label for="oui">Oui</label>
                           <input type="radio" name="paye" value="0" id="non" <?php if ($suivi[0]->paiement == 0) echo " checked= \"checked\" " ?>/> <label for="non">Non</label>
                       </div>
+                      </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Annulé </label>
@@ -211,15 +212,16 @@
                       <input name="numEditeur" type="hidden" value="<?php echo $suivi[0]->numEditeur ?>">
 
                      <!-- Boutons -->
-                      <div class="ln_solid"></div>
+                      
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                           <button type="submit" class="btn btn-success">Envoyer</button>
                         </div>
                       </div>
+                  </form>
 
-                    </form>
                   </div>
+
                 </div>
 
 
