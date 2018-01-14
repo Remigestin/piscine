@@ -43,6 +43,8 @@ public function index()
 	$data['frais2'] = $this->admin_model->getDataFrais2($festival);
         
         $data["courant"] = $this->festival_model->selectById($festival);
+        $data["type"] = $this->type_model->selectAll();
+        
 
 
 
@@ -53,6 +55,20 @@ public function index()
              $festival = $this->session->festival;
             $this->festival_model->update_nbTableMax($festival, $_POST['nbTable']);
              header('location:  ' . site_url("admin"));
+        }
+        
+        public function deleteType() {
+            $type = $_POST['numType'];
+            $this->type_model->delete($type);
+            header('location:  ' . site_url('admin'));
+        }
+        
+         public function ajoutType() {
+            $libelle = $_POST['libelleType'];
+            $this->type_model->insert($libelle);
+            $type = $this->type_model->getLast();
+            $this->zone_model->insertType($type[0]->numType);
+            header('location:  ' . site_url('admin'));
         }
         
         public function changeFest() {

@@ -29,6 +29,32 @@ class Type_model extends CI_Model {
                 
     }
     
+    public function insert($data) {
+    $this->load->database('default');
+
+    
+        $this->db->set('libelleType', $data)
+                ->insert($this->table);
+  }
+    
+    public function delete($id) {
+        $this->load->database('default');
+        
+        return $this->db->where('numType', (int) $id)
+			->delete($this->table);
+    }
+    
+    public function getLast() {
+      $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from($this->table)
+                    ->order_by('numType', 'desc')
+                    ->limit(1)
+                    ->get()
+                    ->result();
+  }
+    
 }
 /* 
  * To change this license header, choose License Headers in Project Properties.

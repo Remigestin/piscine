@@ -171,12 +171,14 @@
                         Partie Modifications
                      </p>
                      <div class="row x_panel">
-                       <p class="text-muted font-13 m-b-30">
-                         Festival courant :
-                       </p>
-                       <div class = "row ">
-                       <div class = "col-md-2">
-                           <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
+                         <div class = "row ">
+                             <div class="form-group">
+                             <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12"> Festival courant</label>
+                       <div class="col-md-1 col-sm-9 col-xs-12">
+                       
+                          
+                           
                              <select name="festival" class="form-control" required>
                        <?php
                            foreach ($festival as $item) {
@@ -190,12 +192,15 @@
                            }
                            ?>
                             </select>
-                        </div>
+                           
+                       </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Modifier</button>
                         </div>
                       </form>
                     </div>
+                       </div>
+                       
 
                     <br />
                     <div class = "row ">
@@ -215,15 +220,41 @@
                     <br />
                     <div class = "row ">
                       <div class="form-group">
+                          <form method="post"action="<?php echo site_url("admin/ajoutType")?>">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Ajouter Type Jeu</label>
                         <div class="col-md-1 col-sm-9 col-xs-12">
-                          <input name="TypeJeu" type="text" class="form-control">
+                          <input name="libelleType" type="text" class="form-control">
                         </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Ajouter</button>
                         </div>
+                          </form>
                       </div>
                     </div>
+                    <br>
+                    
+                     <div class = "row ">
+                             <div class="form-group">
+                             <form method='post' action=<?php echo site_url("admin/deleteType") ?>>
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12"> Supprimer Type Jeu</label>
+                       <div class="col-md-1 col-sm-9 col-xs-12">
+                       
+                          
+                           
+                             <select name="numType" class="form-control" required>
+                       <?php
+                           foreach ($type as $item) {
+                               echo "<option  value = $item->numType>$item->libelleType </option>";
+                           }
+                           ?>
+                            </select>   
+                       </div>
+                        <div class = "col-md-1">
+                          <button type = "submit" class="btn btn-default submit">Supprimer</button> 
+                        </div>
+                      </form>
+                    </div>
+                 </div>
                   </div>
         <!-- footer content -->
         <footer>
