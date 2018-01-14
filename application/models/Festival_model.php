@@ -3,7 +3,7 @@
 class Festival_model extends CI_Model{
 
     protected $table = 'festival';
-    
+
   public function selectAll() {
       $this->load->database('default');
 
@@ -12,7 +12,7 @@ class Festival_model extends CI_Model{
                     ->get()
                     ->result();
   }
-  
+
   public function selectById($id) {
       $this->load->database('default');
 
@@ -22,7 +22,7 @@ class Festival_model extends CI_Model{
                     ->get()
                     ->result();
   }
-  
+
   public function getLast() {
       $this->load->database('default');
 
@@ -33,14 +33,21 @@ class Festival_model extends CI_Model{
                     ->get()
                     ->result();
   }
-  
+
   public function update_nbTableMax($id, $nb) {
         $this->load->database('default');
 
         $this->db->set('nbDemiTableTotal', $nb);
-              
+
         $this->db->where('numFestival', (int)$id);
         return $this->db->update($this->table);
-        
+
+    }
+
+    public function insert($data){
+      $this->load->database('default');
+      $this->db->set('année', $data['année'])
+              ->set('nbDemiTableTotal', $data['nbDemiTableTotal'])
+              ->insert($this->table);
     }
 }

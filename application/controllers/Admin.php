@@ -66,7 +66,7 @@ public function index()
         }
 
          public function ajoutType() {
-            $libelle = $_POST['libelleType'];
+            $libelle = htmlspecialchars($_POST['libelleType']);
             $this->type_model->insert($libelle);
             $type = $this->type_model->getLast();
             $this->zone_model->insertType($type[0]->numType);
@@ -78,5 +78,14 @@ public function index()
             $this->session->festival = $festival[0]->numFestival;
             $this->session->anneeFestival = $festival[0]->année;
             header('location:  ' . site_url('admin'));
+        }
+
+        public function ajouterFest(){
+          $data = array(
+                "année" => (int)htmlspecialchars($_POST['anneeFestival']),
+                "nbDemiTableTotal" => $_POST['nbTotalTable'],
+            );
+          $this->festival_model->insert($data);
+          header('location:  ' . site_url('admin'));
         }
 }

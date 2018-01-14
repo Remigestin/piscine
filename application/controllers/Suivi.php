@@ -83,7 +83,6 @@ class Suivi extends CI_Controller {
     $festival = $this->session->festival;
     $data['login'] = $this->session->login;
     $data['suivi'] = $this->suivi_model->selectByEditeur($id, $festival);
-    //$data['nom'] = $this->editeur_model->selectNameById($data['suivi']->numEditeur);
     $this->load->view('suivi/modifier_suivi', $data);
   }
 

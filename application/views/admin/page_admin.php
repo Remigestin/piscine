@@ -139,7 +139,7 @@
                     <br>
                     <p class="text-muted font-13 m-b-30">
 
-                     Informations générales: 
+                     Informations générales:
                     </p>
         </div>
 
@@ -177,14 +177,33 @@
                         Partie Modifications
                      </p>
                      <div class="row x_panel">
+
+                       <div class = "row ">
+                         <div class="form-group">
+                             <form method="post"action="<?php echo site_url("admin/ajouterFest")?>">
+                           <label class="control-label col-md-1 col-sm-3 col-xs-12">Ajouter Festival</label>
+                           <div class="col-md-1 col-sm-9 col-xs-12">
+                             <input name="anneeFestival" type="text" class="form-control" >
+                           </div>
+                           <label class="control-label col-md-1 col-sm-3 col-xs-12">Nombre total de demi table</label>
+                           <div class="col-md-1 col-sm-9 col-xs-12">
+                             <input name="nbTotalTable" type="number" class="form-control" >
+                           </div>
+                           <div class = "col-md-1">
+                             <button type = "submit" class="btn btn-default submit">Ajouter</button>
+                           </div>
+                             </form>
+                         </div>
+                       </div>
+
                          <div class = "row ">
                              <div class="form-group">
                              <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
                         <label class="control-label col-md-1 col-sm-3 col-xs-12"> Festival courant</label>
                        <div class="col-md-1 col-sm-9 col-xs-12">
-                       
-                          
-                           
+
+
+
                              <select name="festival" class="form-control" required>
                        <?php
                            foreach ($festival as $item) {
@@ -198,7 +217,7 @@
                            }
                            ?>
                             </select>
-                           
+
                        </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Modifier</button>
@@ -206,7 +225,7 @@
                       </form>
                     </div>
                        </div>
-                       
+
 
                     <br />
                     <div class = "row ">
@@ -238,25 +257,25 @@
                       </div>
                     </div>
                     <br>
-                    
+
                      <div class = "row ">
                              <div class="form-group">
                              <form method='post' action=<?php echo site_url("admin/deleteType") ?>>
                         <label class="control-label col-md-1 col-sm-3 col-xs-12"> Supprimer Type Jeu</label>
                        <div class="col-md-1 col-sm-9 col-xs-12">
-                       
-                          
-                           
+
+
+
                              <select name="numType" class="form-control" required>
                        <?php
                            foreach ($type as $item) {
                                echo "<option  value = $item->numType>$item->libelleType </option>";
                            }
                            ?>
-                            </select>   
+                            </select>
                        </div>
                         <div class = "col-md-1">
-                          <button type = "submit" class="btn btn-default submit">Supprimer</button> 
+                          <button type = "submit" class="btn btn-default submit">Supprimer</button>
                         </div>
                       </form>
                     </div>
