@@ -41,11 +41,19 @@ public function index()
 	$data['jeu5'] = $this->admin_model->getDataJeux5($festival);
 	$data['frais1'] = $this->admin_model->getDataFrais1($festival);
 	$data['frais2'] = $this->admin_model->getDataFrais2($festival);
+        
+        $data["courant"] = $this->festival_model->selectById($festival);
 
 
 
 	$this->load->view('admin/page_admin', $data);
 	}
+        
+         public function nbTableMax() {
+             $festival = $this->session->festival;
+            $this->festival_model->update_nbTableMax($festival, $_POST['nbTable']);
+             header('location:  ' . site_url("admin"));
+        }
         
         public function changeFest() {
             $festival = $this->festival_model->selectById($_POST['festival']);
