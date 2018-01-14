@@ -219,7 +219,7 @@ EOT;
 
                                       ?>
                       </div>
-                      <h2>Suivi <a class="glyphicon glyphicon-edit" href=""></a> </h2>
+                       <h2>Suivi <a class="glyphicon glyphicon-edit" href="<?php $numEditeur = $editeur[0]->numEditeur; echo site_url("suivi/modifier/$numEditeur"); ?>"></a> </h2>
                       <br>
                       <div class="row x_panel">
 
@@ -343,7 +343,7 @@ EOT;
                       </thead>
                         <?php
 foreach ($jeu as $item) {
-    $id = $item->numJeu; 
+    $id = $item->numJeu;
     $lien = site_url("jeu/modifier/$id/1");
     echo <<<EOT
     <tr>

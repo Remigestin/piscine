@@ -4,9 +4,9 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Contact_model extends CI_Model {
-    
+
     protected $table = 'contact';
-    
+
     public function selectByEditeur($id) {
     $this->load->database('default');
 
@@ -16,7 +16,7 @@ class Contact_model extends CI_Model {
                     ->get()
                     ->result();
   }
-  
+
   public function selectById($id) {
     $this->load->database('default');
 
@@ -26,11 +26,11 @@ class Contact_model extends CI_Model {
                     ->get()
                     ->result();
   }
-  
+
    public function insert($data) {
     $this->load->database('default');
 
-    
+
         $this->db->set('nomContact', $data['nomContact'])
                 ->set('prenomContact', $data['prenomContact'])
                 ->set('mailContact', $data['mailContact'])
@@ -38,7 +38,7 @@ class Contact_model extends CI_Model {
                 ->set('numEditeur', $data['numEditeur'])
                 ->insert($this->table);
   }
-  
+
   public function update($id, $data) {
         $this->load->database('default');
 
@@ -46,28 +46,27 @@ class Contact_model extends CI_Model {
                 ->set('prenomContact', $data['prenomContact'])
                 ->set('mailContact', $data['mailContact'])
                 ->set('telContact', $data['telContact']);
-                
-                
-                
-        
+
+
+
+
         $this->db->where('numContact', (int)$id);
         return $this->db->update($this->table);
-        
+
     }
-    
+
     public function delete($id) {
         $this->load->database('default');
-        
+
         return $this->db->where('numContact', (int) $id)
 			->delete($this->table);
     }
-    
-    
-    
+
+
+
 }
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-

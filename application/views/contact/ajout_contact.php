@@ -49,11 +49,11 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
-                
+
                 <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
-                
+
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -72,21 +72,21 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
                       <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
-                      
+
                     </li>
-                  
+
               </div>
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -100,7 +100,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -109,12 +109,12 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
-                
+
               </ul>
             </nav>
           </div>
@@ -138,7 +138,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2> <small>Rentrez les informations du contact à ajouter</small></h2>
-                    
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -163,7 +163,7 @@
                           <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                         </div>
                       </div>
-                       
+
                       <div class="form-group">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Mail</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
@@ -185,7 +185,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          
+
 			<button class="btn btn-primary" type="reset">Recommencer</button>
                           <button type="submit" class="btn btn-success">Envoyer</button>
                           <?php if ($action == "edit") { $lienDelete = site_url("contact/delete/$typeFiche/".$contact[0]->numContact); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Supprimer</button>"; }?>
@@ -203,7 +203,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        
+
         <!-- /footer content -->
       </div>
     </div>

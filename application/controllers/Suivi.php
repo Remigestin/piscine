@@ -30,7 +30,7 @@ class Suivi extends CI_Controller {
                 $data['editeur1'] = $this->admin_model->getDataEditeur1($this->session->festival);
               	$data['editeur2'] = $this->admin_model->getDataEditeur2($this->session->festival);
                 $data['nonSuivi'] = $this->suivi_model->selectEditeurNonSuivi($this->session->festival);
-                
+
                 foreach($data['suivi'] as $item) {
 
                     $this->load->library('utile');
@@ -70,9 +70,42 @@ class Suivi extends CI_Controller {
     );
     $this->suivi_model->insert($data);
     header('location: ' . site_url('suivi'));
+  }
 
+  public function modifier($id){
+    $festival = $this->session->festival;
+    $data['login'] = $this->session->login;
+    $data['suivi'] = $this->suivi_model->selectByEditeur($id, $festival);
+    //$data['nom'] = $this->editeur_model->selectNameById($data['suivi']->numEditeur);
+    $this->load->view('suivi/modifier_suivi', $data);
+  }
+
+  public function edit(){
+    $festival = $this->session->festival;
+    $numEditeur = (int)$_POST['numEditeur'];
+    $data['suivi'] = $this->suivi_model->selectByEditeur($numEditeur, $festival);
+
+    $data = array(
+      "numSuivi" =>$data['suivi'][0]->numSuivi,
+      "commentaire" => $data['suivi'][0]->commentaire,
+      "reponse" => (int)$_POST['repondu'],
+      "prix" => $data['suivi'][0]->prix,
+      "presentAuFestival" => (int)$_POST['present'],
+      "paiement" => (int)$_POST['paye'],
+      "facture" => (int)$_POST['facture'],
+      "contacte" => (int)$_POST['contacte'],
+      "annule" => (int)$_POST['annule'],
+      "derniereDateContact" => (int)$_POST['derniereContact'],
+      "derniereDateReponse" => (int)$_POST['derniereReponse'],
+      "numEditeur" => $data['suivi'][0]->numEditeur,
+      "numFestival" => $data['suivi'][0]->numFestival
+    );
+
+    $this->suivi_model->update($suivi[0]->numSuivi, $data);
+    header('location: ' . site_url("editeur/fiche/$numEditeur"));
 
   }
+
 
 
 

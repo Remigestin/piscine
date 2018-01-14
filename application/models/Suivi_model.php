@@ -23,7 +23,7 @@ class Suivi_model extends CI_Model {
         return $this->db->select('*')
                         ->from($this->table)
                         ->where('numEditeur', $id)
-                        ->where('numFestival', $fest)    
+                        ->where('numFestival', $fest)
                         ->get()
                         ->result();
     }
@@ -42,7 +42,7 @@ class Suivi_model extends CI_Model {
                        ->from('editeur')
                        ->join('suivi', 'editeur.numEditeur = suivi.numEditeur','left')
                        ->where('numSuivi is null', null, false)
-                       ->or_where('numFestival !=', $festival)    
+                       ->or_where('numFestival !=', $festival)
                        ->get()
                        ->result();
    }
@@ -63,16 +63,35 @@ class Suivi_model extends CI_Model {
              ->set('numFestival', $data['numFestival'])
              ->insert($this->table);
    }
-   
+
    public function update_commentaire($id, $commentaire) {
         $this->load->database('default');
 
         $this->db->set('commentaire', $commentaire);
-              
+
         $this->db->where('numSuivi', (int)$id);
         return $this->db->update($this->table);
-        
+
     }
+
+    public function update($id, $data) {
+        $this->load->database('default');
+        $this->db->set('numSuivi', $data['numSuivi'])
+                 ->set('commentaire', $data['commentaire'])
+                 ->set('reponse', $data['reponse'])
+                 ->set('presentAuFestival', $data['presentAuFestival'])
+                 ->set('paiement', $data['paiement'])
+                 ->set('facture', $data['facture'])
+                 ->set('contacte', $data['contacte'])
+                 ->set('annule', $data['annule'])
+                 ->set('derniereDateContact', $data['derniereDateContact'])
+                 ->set('derniereDateReponse', $data['derniereDateReponse'])
+                 ->set('numEditeur', $data['numEditeur'])
+                 ->set('numFestival', $data['numFestival'])
+                 ->where('numSuivi', $id);
+                 return $this->db->update($this->table);
+    }
+
 
 }
 /*
