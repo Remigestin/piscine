@@ -29,6 +29,8 @@ class Suivi extends CI_Controller {
                 $data['login'] = $this->session->login;
                 $data['editeur1'] = $this->admin_model->getDataEditeur1($this->session->festival);
               	$data['editeur2'] = $this->admin_model->getDataEditeur2($this->session->festival);
+                $data['nonSuivi'] = $this->suivi_model->selectEditeurNonSuivi();
+
                 foreach($data['suivi'] as $item) {
 
                     $this->load->library('utile');
@@ -47,4 +49,31 @@ class Suivi extends CI_Controller {
                 }
 		$this->load->view('suivi/home', $data);
 	}
+
+  public function add() {
+    $numEditeur= $_POST['ajoutEditeurFestival'];
+    $festival = $this->session->festival;
+
+    $data = array(
+      "commentaire" => "",
+      "reponse" => 0,
+      "prix" => 0,
+      "presentAuFestival" => 0,
+      "paiement" => 0,
+      "facture" => 0,
+      "contacte" => 0,
+      "annule" => 0,
+      "derniereDateContact" => "2010-01-01",
+      "derniereDateReponse" => "2010-01-01",
+      "numEditeur" => $numEditeur,
+      "numFestival" => $festival
+    );
+    $this->suivi_model->insert($data);
+    header('location: ' . site_url('suivi'));
+
+
+  }
+
+
+
 }

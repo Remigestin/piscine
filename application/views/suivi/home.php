@@ -179,12 +179,32 @@
                         <li>Nombre d'éditeurs contactés : <?php foreach($editeur2 as $temp);echo $temp ;?></li>
                       </ul>
                       Pour plus d'informations <a href="<?php echo site_url('Admin'); ?>">cliquez ici</a>
-                      
+
                     </p>
                     <p class="text-muted font-13 m-b-30">
                      Ceci est la table des éditeurs. Vous pouvez trier ce tableau suivant la colonne que vous souhaitez.
                     </p>
                     <table id="datatablePiscine" class="table table-striped table-bordered">
+
+                      <!-- ajout d'un editeur au festival -->
+                      <label class="col-sm-3 ">Ajout d'un Editeur au festival:</label>
+                      <div class = "col-md-3">
+                        <form method='post' action=<?php echo site_url("Suivi/add") ?>>
+                          <select name="ajoutEditeurFestival" id = "ajoutEditeurFestival" class="form-control" required>
+                            <?php
+                            foreach ($nonSuivi as $item) {
+                                echo "<option value = $item->numEditeur>$item->nomEditeur</option>";
+                            }
+                            ?>
+                          </select>
+                      </div>
+                        <div class = "col-md-1">
+                          <button type = "submit" class="btn btn-default submit">Ajouter</button>
+                        </div>
+                        </form>
+                      </div>
+                      <!-- /ajout d'un editeur au festival -->
+
                       <thead>
                         <tr>
 
@@ -220,6 +240,7 @@ foreach ($suivi as $item) {
         <td>$item->derniereDateReponse</td>
         <td>$item->prix</td>
      </tr>
+
 EOT;
 }
 ?>
