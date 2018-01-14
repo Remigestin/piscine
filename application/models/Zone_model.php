@@ -55,7 +55,7 @@ public function type_zone($id,$fes) {
 
 public function getFicheZone($id,$f) {
      $this->load->database('default');
-       $sql="select nomEditeur, nomJeu, quantiteJeu from zone,reservation, festival, jeu, concerner, editeur
+       $sql="select editeur.numEditeur, nomEditeur, nomJeu, quantiteJeu from zone,reservation, festival, jeu, concerner, editeur
        where zone.numZone=? and reservation.numZone=zone.numZone and concerner.numReservation=reservation.numReservation and concerner.numJeu=jeu.numJeu and editeur.numEditeur=jeu.numEditeur and festival.numFestival = ? and festival.numFestival=reservation.numFestival";
        $res=$this->db->query($sql,array($id,$f));
        return $res->result() ;
@@ -65,6 +65,3 @@ public function getFicheZone($id,$f) {
 
 
    }
-
-
-}
