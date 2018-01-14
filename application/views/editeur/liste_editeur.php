@@ -74,7 +74,7 @@
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
-                      <li><a href="<?php echo site_url('Admin'); ?>">Page Administrateur</a></li>
+                      <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
                       
                     </li>
               </div>
