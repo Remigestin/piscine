@@ -237,7 +237,8 @@ EOT;
                          </div>
                       
                       <h2>Réservations</h2>
-                      <form>
+                      <form method="post" action="<?php echo site_url("reservation/create") ?>">
+                          <input name="numEditeur" type="hidden" value=<?php echo $editeur[0]->numEditeur ?>>
                           <div class="col-md-1">
                         <select name="numZone" class="form-control" required>
                                 <?php 
@@ -246,11 +247,10 @@ EOT;
                                     echo "<option value = $item->numZone>$item->nomZone</option>";
                                 }
                                 
-                                
-                                
                                 ?>
                         </select>
                           </div>
+                          <button type = "submit" class="btn btn-default submit">Créer Réservation</button>
                       </form>
                       <br>
                       <div class="row x_panel">
@@ -259,12 +259,14 @@ EOT;
                             <?php
                             $i = 1;
 foreach ($reservation as $item) {
+    $idRes = $item->numReservation;
     $lien = site_url("concerner/creer");
     $lien2 = site_url("editeur/nbTable");
+    $lienDelete = site_url("reservation/delete/$idRes");
     $idEditeur= $editeur[0]->numEditeur;
     echo <<<EOT
         <div class="row x_panel">
-        <li><h2>Reservation n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2></li>
+        <li><h2>Reservation n°$i <a class="glyphicon glyphicon-remove-circle" href="$lienDelete"></a></h2></li>
         <ul>
             <form method="post" action=$lien2>
             <input name="numReservation" type="hidden" value=$item->numReservation>

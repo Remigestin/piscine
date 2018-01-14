@@ -51,7 +51,8 @@ class Editeur extends CI_Controller {
     $data['suivi'][0]->annule = $this->utile->OuiNon($data['suivi'][0]->annule);
     $data['suivi'][0]->reponse = $this->utile->OuiNon($data['suivi'][0]->reponse);
     
-    $data['zone'] = $this->zone_model->selectAllType();
+    $data['zone'] = $this->zone_model->selectAllNonPrise($data['editeur'][0]->numEditeur, $festival);
+    var_dump($data['zone']);
     foreach($data["zone"] as $item) {
         $nomZone = Editeur::nomZone($item);
         $item->nomZone = $nomZone;

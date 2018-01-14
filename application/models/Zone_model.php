@@ -15,16 +15,15 @@ public function selectById($id) {
 
     }
     
-public function selectAllType() {
+public function selectAllNonPrise($idEditeur, $fest) {
         $this->load->database('default');
 
-        return $this->db->select('*')
-                        ->from($this->table)
-                        ->where('numEditeur is null', null, false)
-                        ->get()
-                        ->result();
-
-    }
+        $sql = "select * from zone where numZone not in (select numZone from editeur,reservation, festival
+where editeur.numEditeur=? and editeur.numEditeur=reservation.numEditeur
+and festival.numFestival= ? and reservation.numFestival=festival.numFestival) and numZone not in (select numZone from zone where zone.numEditeur!=?)";
+        $res=$this->db->query($sql, array($idEditeur, $fest, $idEditeur));
+return $res->result() ;
+}
 
 public function getZoneEditeur() {
     $this->load->database('default');
