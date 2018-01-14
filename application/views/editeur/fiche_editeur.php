@@ -229,7 +229,24 @@ EOT;
                                  </form>
                              </div>
                          </div>
-                      <h2>Réservations   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+                      
+                      <h2>Réservations</h2>
+                      <form>
+                          <div class="col-md-1">
+                        <select name="numZone" class="form-control" required>
+                                <?php 
+                                
+                                foreach($zone as $item) {
+                                    echo "<option value = $item->numZone>$item->nomZone</option>";
+                                }
+                                
+                                
+                                
+                                ?>
+                        </select>
+                          </div>
+                      </form>
+                      <br>
                       <div class="row x_panel">
                         <br>
                           <ul>

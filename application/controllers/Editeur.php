@@ -46,6 +46,12 @@ class Editeur extends CI_Controller {
     $data['suivi'][0]->annule = $this->utile->OuiNon($data['suivi'][0]->annule);
     $data['suivi'][0]->reponse = $this->utile->OuiNon($data['suivi'][0]->reponse);
     
+    $data['zone'] = $this->zone_model->selectAllType();
+    foreach($data["zone"] as $item) {
+        $nomZone = Editeur::nomZone($item);
+        $item->nomZone = $nomZone;
+    }
+    
     
     $data['reservation'] = $this->reservation_model->selectByEditeur($id, $festival);
     

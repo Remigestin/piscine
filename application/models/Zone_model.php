@@ -14,6 +14,17 @@ public function selectById($id) {
                         ->result();
 
     }
+    
+public function selectAllType() {
+        $this->load->database('default');
+
+        return $this->db->select('*')
+                        ->from($this->table)
+                        ->where('numEditeur is null', null, false)
+                        ->get()
+                        ->result();
+
+    }
 
 public function getZoneEditeur() {
     $this->load->database('default');
