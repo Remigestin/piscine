@@ -179,7 +179,7 @@
                   <div class="x_content">
                       <div class="row">
                            <div class="col-md-2 ">
-                      <h2>Adresse <a class="glyphicon glyphicon-edit" href=""></a></h2>
+                      <h2>Adresse <a class="glyphicon glyphicon-edit" href="<?php $id = $editeur[0]->numEditeur; echo site_url("editeur/modifier/$id/1")?>"></a></h2>
                      <ul>
                          <li>Rue : <?php echo $editeur[0]->rueEditeur ?></li>
                          <li>Ville : <?php echo $editeur[0]->villeEditeur ?></li>

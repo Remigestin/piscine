@@ -118,14 +118,17 @@ class Editeur extends CI_Controller {
       
        $editeur = $this->editeur_model->getLast();
        $id = $editeur[0]->numEditeur;
+       
        header('location:  ' . site_url("editeur/fiche2/$id"));
+      
        
       
      
   }
   
-  public function modifier($id) {
+  public function modifier($id,  $typeFiche) {
       $data['editeur'] = $this->editeur_model->selectById($id);
+      $data['typeFiche'] = $typeFiche;
       $data['action'] = "edit";
       $this->load->view('editeur/ajout_editeur',$data);
   }
@@ -141,7 +144,11 @@ class Editeur extends CI_Controller {
      $id = $_POST['numEditeur'];
       
       $this->editeur_model->update($id, $data);
-      header('location:  ' . site_url("editeur/fiche2/$id"));
+      if ($_POST['typeFiche'] == 1){
+           header('location:  ' . site_url("editeur/fiche/$id"));
+      } else {
+          header('location:  ' . site_url("editeur/fiche2/$id"));
+      }
       
   }
   
