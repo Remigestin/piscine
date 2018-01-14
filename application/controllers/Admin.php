@@ -55,7 +55,7 @@ public function index()
 
          public function nbTableMax() {
              $festival = $this->session->festival;
-            $this->festival_model->update_nbTableMax($festival, $_POST['nbTable']);
+            $this->festival_model->update_nbTableMax($festival, $_POST['nbTable'] * 2);
              header('location:  ' . site_url("admin"));
         }
 
