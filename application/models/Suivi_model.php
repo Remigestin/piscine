@@ -17,19 +17,20 @@ class Suivi_model extends CI_Model {
                         ->result();
     }
 
-     public function selectByEditeur($id) {
+     public function selectByEditeur($id, $fest) {
         $this->load->database('default');
 
         return $this->db->select('*')
                         ->from($this->table)
                         ->where('numEditeur', $id)
+                        ->where('numFestival', $fest)    
                         ->get()
                         ->result();
     }
 
 
 
-    public function selectEditeurNonSuivi(){
+    public function selectEditeurNonSuivi($festival){
 
       /*select editeur.`numEditeur`, editeur.`nomEditeur` from editeur
       left join suivi on editeur.numEditeur = suivi.numEditeur
@@ -41,6 +42,7 @@ class Suivi_model extends CI_Model {
                        ->from('editeur')
                        ->join('suivi', 'editeur.numEditeur = suivi.numEditeur','left')
                        ->where('numSuivi is null', null, false)
+                       ->or_where('numFestival !=', $festival)    
                        ->get()
                        ->result();
    }

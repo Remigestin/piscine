@@ -29,12 +29,12 @@ class Editeur extends CI_Controller {
   }
 
   public function fiche($id){
-    $festival = $this->session->festival;
     
+    $festival = $this->session->festival;
     $data['login'] = $this->session->login;
     $data['editeur'] = $this->editeur_model->selectById($id);
     $data['contact'] = $this->contact_model->selectByEditeur($id);
-    $data['suivi'] = $this->suivi_model->selectByEditeur($id);
+    $data['suivi'] = $this->suivi_model->selectByEditeur($id, $festival);
     
     $this->load->library('utile');
     

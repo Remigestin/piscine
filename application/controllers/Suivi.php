@@ -29,7 +29,7 @@ class Suivi extends CI_Controller {
                 $data['login'] = $this->session->login;
                 $data['editeur1'] = $this->admin_model->getDataEditeur1($this->session->festival);
               	$data['editeur2'] = $this->admin_model->getDataEditeur2($this->session->festival);
-                $data['nonSuivi'] = $this->suivi_model->selectEditeurNonSuivi();
+                $data['nonSuivi'] = $this->suivi_model->selectEditeurNonSuivi($this->session->festival);
                 
                 foreach($data['suivi'] as $item) {
 
