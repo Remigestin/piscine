@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Projet Piscine! | </title>
+    <title>Projet Piscine!  </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -47,12 +47,11 @@
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
+           <!-- menu profile quick info -->
             <div class="profile clearfix">
-
+              
               <div class="profile_info">
-                <span> Bienvenue! </span>
-                <h1><?php echo $login ?></h1>
+                <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -71,21 +70,22 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-
-                  <ul class="nav side-menu">
-                      <li><a href="<?php echo site_url('Admin');?>">><i class="fa fa-wrench"></i> Page Administrateur</a></li>
-
-                  </ul>
-
+                 
+                  <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
+                      <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
+                      
+                    </li>
               </div>
-
+              
 
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-
+              
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -99,67 +99,26 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-
+            
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src alt=""><?php echo $login ?>
+                    <img src alt=""><?php echo $this->session->login ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-
+                    
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6 notifs </span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-
-
-                    <li>
-                      <a>
-
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+                
               </ul>
             </nav>
           </div>
         </div>
-        <!-- /top navigation -->
+        
 
 
         <!-- page content -->
@@ -169,28 +128,12 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2> Détails de la Zone : <?php echo $nom ?> <small>Users</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    <h1> Détails de la Zone : <?php echo $nom ?> </h1>
+                    
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                     Détails de la zone
-                    </p>
+                    
                     <table id="datatablePiscine1" class="table table-striped table-bordered">
                       <thead>
                       <tr>
@@ -288,12 +231,7 @@ EOT;
         } );
 </script>
 
-    <script src="<?php echo base_url() ?>gentelella-master/build/js/custom.min.js"></script>
-    <script>
-        $(document).ready(function() {
-               $('#datatablePiscine2').DataTable();
-        } );
-</script>
+    
 
   </body>
 </html>
