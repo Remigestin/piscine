@@ -2,6 +2,8 @@
 
 class Jeu_model extends CI_Model{
 
+    protected $table = 'jeu';
+    
   public function getJeu($fest) {
     $this->load->database('default');
 
@@ -63,5 +65,44 @@ class Jeu_model extends CI_Model{
                     ->get()
                     ->result();
   }
+  
+  public function selectById($id) {
+    $this->load->database('default');
+
+    return $this->db->select('*')
+                    ->from($this->table)
+                    ->where('numJeu', $id)
+                    ->get()
+                    ->result();
+  }
+  
+   public function insert($data) {
+    $this->load->database('default');
+
+    
+        $this->db->set('nomJeu', $data['nomJeu'])
+                ->set('numType', $data['numType'])
+                ->set('numEditeur', $data['numEditeur'])
+                ->insert($this->table);
+  }
+  
+  public function update($id, $data) {
+        $this->load->database('default');
+
+        $this->db->set('nomJeu', $data['nomJeu'])
+                ->set('numType', $data['numType']);
+                
+
+        $this->db->where('numJeu', (int)$id);
+        return $this->db->update($this->table);
+        
+    }
+    
+    public function delete($id) {
+        $this->load->database('default');
+        
+        return $this->db->where('numJeu', (int) $id)
+			->delete($this->table);
+    }
 
 }

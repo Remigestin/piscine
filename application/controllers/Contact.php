@@ -76,11 +76,11 @@ class Contact extends CI_Controller {
       
   }
   
-  public function delete($id) {
+  public function delete($typeFiche, $id) {
       $contact = $this->contact_model->selectById($id);
       $editeur = $contact[0]->numEditeur;
         $this->contact_model->delete($id);
-         if ($_POST['typeFiche'] == 1){
+         if ($typeFiche == 1){
            header('location:  ' . site_url("editeur/fiche/$editeur"));
       } else {
           header('location:  ' . site_url("editeur/fiche2/$editeur"));

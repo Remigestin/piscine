@@ -227,7 +227,7 @@ EOT;
                       </div>
                       
 
-                    <h2>Jeux   <a class="glyphicon glyphicon-plus-sign" href=""></a></h2>
+                    <h2>Jeux   <a class="glyphicon glyphicon-plus-sign" href="<?php $id = $editeur[0]->numEditeur; echo site_url("jeu/creer/$id/2")?>"></a></h2>
                     
                     <div class="col-md-6 ">
                     <table id="datatableJeu" class="table table-striped table-bordered">
@@ -240,10 +240,12 @@ EOT;
                       </thead>
                         <?php
 foreach ($jeu as $item) {
+    $id = $item->numJeu; 
+    $lien = site_url("jeu/modifier/$id/2");
     echo <<<EOT
     <tr>
 
-        <td>$item->nomJeu</td>
+        <td><a href="$lien">$item->nomJeu</a></td>
         <td>$item->libelleType</td>
      </tr>
 EOT;

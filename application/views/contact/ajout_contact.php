@@ -243,7 +243,7 @@
                           
 			<button class="btn btn-primary" type="reset">Recommencer</button>
                           <button type="submit" class="btn btn-success">Envoyer</button>
-                          <?php if ($action == "edit") { $lienDelete = site_url("contact/delete/".$contact[0]->numContact); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Supprimer</button>"; }?>
+                          <?php if ($action == "edit") { $lienDelete = site_url("contact/delete/$typeFiche/".$contact[0]->numContact); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Supprimer</button>"; }?>
                         </div>
                       </div>
 

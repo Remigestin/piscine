@@ -159,22 +159,7 @@ class Editeur extends CI_Controller {
     }
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   public function nomZone($zone) {
         
