@@ -214,7 +214,7 @@
                           <form method="post"action="<?php echo site_url("admin/nbTableMax")?>">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Nombre de Tables</label>
                         <div class="col-md-1 col-sm-9 col-xs-12">
-                          <input name="nbTable" type="number" class="form-control" value="<?php echo $courant[0]->nbDemiTableTotal?>">
+                          <input name="nbTable" type="number" class="form-control" value="<?php echo $courant[0]->nbDemiTableTotal /2?>">
                         </div>
                         <div class = "col-md-1">
                           <button type = "submit" class="btn btn-default submit">Modifier</button>
