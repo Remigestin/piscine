@@ -37,7 +37,7 @@ class Suivi_model extends CI_Model {
       */
 
        $this->load->database('default');
-       return $this->db->select('editeur.numEditeur', 'editeur.nomEditeur')
+       return $this->db->select('editeur.numEditeur, editeur.nomEditeur')
                        ->from('editeur')
                        ->join('suivi', 'editeur.numEditeur = suivi.numEditeur','left')
                        ->where('numSuivi is null', null, false)
