@@ -117,7 +117,7 @@
                   </ul>
                 </li>
 
-               
+
               </ul>
             </nav>
           </div>
@@ -139,11 +139,17 @@
                     <br>
                     <p class="text-muted font-13 m-b-30">
 
-                     Informations générales:
+                     Informations générales: 
                     </p>
         </div>
 
         <!-- /page content -->
+        <ul> Tables :
+                            <li>Nombres de tables prévu: <?php echo $table[0]/2;?></li>
+                            <li>Nombre de tables réservées: <?php  echo $table[1]/2 ;?></li>
+                            <li>Tables Restantes: <?php  echo $table[2]/2 ;?></li>
+
+                         </ul>
 		<ul> Editeurs:
                          <li>Nombre d'éditeurs total: <?php foreach($editeur1 as $temp);echo $temp ;?></li>
                          <li>Nombre d'éditeurs contactés : <?php foreach($editeur2 as $temp);echo $temp ;?></li>
