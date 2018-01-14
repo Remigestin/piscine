@@ -19,6 +19,18 @@ class Reservation_model extends CI_Model {
                         ->get()
                         ->result();
     }
+    
+    
+    public function update_table($id, $nb) {
+        $this->load->database('default');
+
+        $this->db->set('nbDemiTable', $nb);
+              
+        $this->db->where('numReservation', $id);
+        return $this->db->update($this->table);
+        
+    }
+ 
    
     
 }

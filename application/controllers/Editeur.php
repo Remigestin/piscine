@@ -170,8 +170,16 @@ class Editeur extends CI_Controller {
         $this->suivi_model->update_commentaire($id, $_POST['commentaire']);
         header('location:  ' . site_url("editeur/fiche/$editeur"));
    }
-
   
+   public function nbTable() {
+       $nbTable = $_POST['nbTable'];
+       $nbDemiTable = $nbTable * 2;
+       $id = $_POST['numReservation'];
+       $editeur = $_POST['numEditeur'];
+       $this->reservation_model->update_table($id, $nbDemiTable);
+       
+       header('location:  ' . site_url("editeur/fiche/$editeur"));
+   }
 
   
   public function nomZone($zone) {

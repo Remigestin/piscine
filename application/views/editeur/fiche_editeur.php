@@ -237,12 +237,18 @@ EOT;
                             $i = 1;
 foreach ($reservation as $item) {
     $lien = site_url("concerner/creer");
+    $lien2 = site_url("editeur/nbTable");
+    $idEditeur= $editeur[0]->numEditeur;
     echo <<<EOT
         <div class="row x_panel">
         <li><h2>Reservation n°$i <a class="glyphicon glyphicon-edit" href=""></a></h2></li>
         <ul>
-            <li>Nombre de tables  : $item->nbTable </li>
+            <form method="post" action=$lien2>
+            <input name="numReservation" type="hidden" value=$item->numReservation>
+            <input name="numEditeur" type="hidden" value=$idEditeur>
+            <li>Nombre de tables  : <input name = "nbTable" type="number" value=$item->nbTable></input> <button type = "submit" class="btn btn-default submit">Modifier</button></li>
             <li>Zone : $item->nomZone </li>
+            </form>
         </ul>
             <br>
             <form method='post' action=$lien> 
