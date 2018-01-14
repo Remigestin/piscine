@@ -146,9 +146,9 @@
                      </ul>
                      <h2>Frais :</h2>
                      <ul>
-                        <li>Charges / Fraix de renvoi  : <?php foreach($charges as $item) echo $item ;?> €</li>
+                        <li>Charges / Frais de renvoi  : <?php foreach($charges as $item) echo $item ;?> €</li>
                         <li>Produits / Prix de la réservation  : <?php foreach($produits as $item) echo $item ?> €</li>
-                        <li>Résultat <?php echo $produits['prix']-$charges['temp']?> €</li>
+                        <li>Résultat <?php echo $resultat ?> €</li>
                       </ul>
                            </div>
                       </div>
@@ -235,18 +235,18 @@ EOT;
                                  </form>
                              </div>
                          </div>
-                      
+
                       <h2>Réservations</h2>
                       <form method="post" action="<?php echo site_url("reservation/create") ?>">
                           <input name="numEditeur" type="hidden" value=<?php echo $editeur[0]->numEditeur ?>>
                           <div class="col-md-1">
                         <select name="numZone" class="form-control" required>
-                                <?php 
-                                
+                                <?php
+
                                 foreach($zone as $item) {
                                     echo "<option value = $item->numZone>$item->nomZone</option>";
                                 }
-                                
+
                                 ?>
                         </select>
                           </div>
