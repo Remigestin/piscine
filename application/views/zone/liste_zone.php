@@ -116,7 +116,7 @@
                   </ul>
                 </li>
 
-                
+
               </ul>
             </nav>
           </div>
@@ -135,12 +135,12 @@
                    <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    
+
                     <table id="datatablePiscine1" class="table table-striped table-bordered">
                       <thead>
                       <tr>
                          <th>Nom Editeur</th>
-                         <th>Noùbre de Table</th>
+                         <th>Nombre de Table</th>
                          <th>Nombre de Jeux </th>
                          <th>Détails</th>
                        </tr>
@@ -165,11 +165,11 @@ EOT;
              </div>
            </div>
 
-       
-              
+
+
               <!-- page content -->
               <!-- page content -->
-       
+
              <div class="col-md-12 col-sm-12 col-xs-12">
                <div class="x_panel">
                  <div class="x_title">
@@ -178,7 +178,7 @@ EOT;
                    <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    
+
                     <table id="datatablePiscine1" class="table table-striped table-bordered">
                       <thead>
                       <tr>
@@ -208,8 +208,8 @@ EOT;
            </div>
        </div>
 
-       
-       
+
+
 
         <!-- footer content -->
         <footer>
