@@ -83,9 +83,14 @@ public function index()
         public function ajouterFest(){
           $data = array(
                 "année" => (int)htmlspecialchars($_POST['anneeFestival']),
-                "nbDemiTableTotal" => $_POST['nbTotalTable'],
             );
           $this->festival_model->insert($data);
+          header('location:  ' . site_url('admin'));
+        }
+
+        public function deleteFest(){
+          $festival = (int)$_POST['festivalDelete'];
+          $this->festival_model->delete($festival);
           header('location:  ' . site_url('admin'));
         }
 }
