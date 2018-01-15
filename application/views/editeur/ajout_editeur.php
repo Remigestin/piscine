@@ -49,7 +49,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
                 <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
               </div>
@@ -70,22 +70,22 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
                       <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
-                      
+
                     </li>
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -99,7 +99,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -108,12 +108,12 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
-                
+
               </ul>
             </nav>
           </div>
@@ -136,7 +136,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2> <small>Rentrez les informations de l'editeur à ajouter</small></h2>
-                    
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -144,7 +144,7 @@
                     <form class="form-horizontal form-label-left input_mask" method='post' action="<?php echo site_url("editeur/$action") ?>">
 
 							<!-- Zones de texte -->
-                                                        
+
                       <input name="numEditeur" type="hidden" <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->numEditeur . "\""?>">
                       <input name="typeFiche" type="hidden" <?php if (isset($typeFiche)) echo "value = \"" . $typeFiche . "\""?>>
                       <div class="form-group">
@@ -167,7 +167,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Code Postale</label>
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Code Postal</label>
                         <div class="col-md-11 col-sm-9 col-xs-12">
                           <input <?php if (isset($editeur)) echo "value = \"" . $editeur[0]->cpEditeur . "\""?>name="cpEditeur" type="text" class="form-control">
                         </div>
@@ -180,7 +180,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="reset">Recommencer</button>
                           <button type="submit" class="btn btn-success">Envoyer</button>
-                          
+
                         </div>
                       </div>
 
@@ -195,7 +195,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        
+
         <!-- /footer content -->
       </div>
     </div>
