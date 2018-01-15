@@ -48,7 +48,6 @@ class Festival_model extends CI_Model{
       $this->load->database('default');
       return $this->db->set('année', $data['année'])
               ->set('nbDemiTableTotal', $data['nbDemiTableTotal'])
-              ->set('numFestival', $data['numFestival'])
               ->insert($this->table);
     }
 
