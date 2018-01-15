@@ -112,7 +112,7 @@ class Admin_model extends CI_Model {
 public function getDataTable($festival) {
   //benf prevu
   $this->load->database('default');
-  $sql="select sum(nbDemiTable) as temp from reservation, festival where festival.numFestival=? and festival.numFestival=reservation.numReservation" ;
+  $sql="select sum(nbDemiTable) as temp from reservation, festival where festival.numFestival=? and festival.numFestival=reservation.numFestival" ;
   $nbcourant=$this->db->query($sql,$festival);
   $nbcourant = $nbcourant->row_array();
 
