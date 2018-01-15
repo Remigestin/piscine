@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> Projet Piscine!  </title>
+    <title> Projet Piscine! </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,16 +49,18 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
-                <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
+
+                  <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
+
               </div>
             </div>
             <!-- /menu profile quick info -->
 
             <br />
 
-            <!-- sidebar menu -->
+           <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Options</h3>
@@ -70,22 +72,23 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
                       <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
-                      
+
                     </li>
+
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -99,7 +102,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -108,7 +111,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -118,8 +121,8 @@
             </nav>
           </div>
         </div>
-        
-        
+        <!-- /top navigation -->
+
         <!-- page content -->
               <!-- page content -->
        <div class="right_col" role="main">
@@ -127,18 +130,18 @@
              <div class="col-md-12 col-sm-12 col-xs-12">
                <div class="x_panel">
                  <div class="x_title">
-                   <h1>Listes des Zones </h1>
+                   <h2>Listes des Zones Editeurs </h2>
 
                    <div class="clearfix"></div>
-                 </div>
-                 <div class="x_content">
-                   
-                   <table id="datatablePiscine1" class="table table-striped table-bordered">
-                     <thead>
-                       <tr>
+                  </div>
+                  <div class="x_content">
+                    
+                    <table id="datatablePiscine1" class="table table-striped table-bordered">
+                      <thead>
+                      <tr>
                          <th>Nom Editeur</th>
-                         <th>Nb Demi table</th>
-                         <th>Nb Jeux total</th>
+                         <th>Noùbre de Table</th>
+                         <th>Nombre de Jeux </th>
                          <th>Détails</th>
                        </tr>
                      </thead>
@@ -156,14 +159,31 @@ foreach ($zoneEditeur as $item) {
 EOT;
 }
 ?>
+                    </table>
+                  </div>
+               </div>
+             </div>
+           </div>
 
-       </div>
-       <!-- /page content -->
-                   <table id="datatablePiscine2" class="table table-striped table-bordered">
-                     <thead>
-                       <tr>
-                         <th>Zones-types</th>
-                         <th>Nombre de Demi table</th>
+       
+              
+              <!-- page content -->
+              <!-- page content -->
+       
+             <div class="col-md-12 col-sm-12 col-xs-12">
+               <div class="x_panel">
+                 <div class="x_title">
+                   <h2>Listes des Zones Types </h2>
+
+                   <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    
+                    <table id="datatablePiscine1" class="table table-striped table-bordered">
+                      <thead>
+                      <tr>
+                        <th>Zones-types</th>
+                         <th>Nombre de Table</th>
                          <th>Nombre de Jeux</th>
                          <th>Détails</th>
                        </tr>
@@ -181,14 +201,21 @@ $lien = site_url("zone/fiche/$item->numZone");
 EOT;
 }
 ?>
+                    </table>
+                  </div>
+               </div>
+             </div>
+           </div>
+       </div>
 
-
-       <!-- /page content -->
-        
-        
+       
+       
 
         <!-- footer content -->
-        
+        <footer>
+
+          <div class="clearfix"></div>
+        </footer>
         <!-- /footer content -->
       </div>
     </div>
@@ -249,12 +276,12 @@ EOT;
     <script src="<?php echo base_url() ?>gentelella-master/vendors/pdfmake/build/vfs_fonts.js"></script>
 
     <!-- Custom Theme Scripts -->
-    
-    
-
-
-
-   
+    <script src="<?php echo base_url() ?>gentelella-master/build/js/custom.min.js"></script>
+    <script>
+        $(document).ready(function() {
+               $('#datatablePiscine').DataTable();
+        } );
+</script>
 
   </body>
 </html>
