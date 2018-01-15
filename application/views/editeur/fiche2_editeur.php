@@ -24,11 +24,11 @@
     <link href="<?php echo base_url() ?>gentelella-master/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    
+
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>gentelella-master/build/css/custom.min.css" rel="stylesheet">
-    
-    
+
+
 
     <!-- Datatables -->
     <link href="<?php echo base_url() ?>gentelella-master/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -51,9 +51,9 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              
+
               <div class="profile_info">
-                
+
                 <h4>ANNEE: <?php echo $this->session->anneeFestival ?></h4>
               </div>
             </div>
@@ -73,30 +73,30 @@
                       <li><a href="<?php echo site_url('Zone'); ?>">Zone</a></li>
                     </ul>
                   </li>
-                 
+
                   <li><a><i class="fa fa-wrench"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('editeur'); ?>">Liste des Editeurs</a></li>
                       <li><a href="<?php echo site_url('Admin'); ?>">Informations générales</a></li>
-                      
+
                     </li>
-                 
+
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
-            
+
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              
+
 
               <a data-toggle="tooltip"  href="<?php echo site_url("utilisateur/deconnected") ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
             <!-- /menu footer buttons -->
-            
+
           </div>
         </div>
 
@@ -104,7 +104,7 @@
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-            
+
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -113,12 +113,12 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    
+
                     <li><a href="<?php echo site_url("utilisateur/deconnected") ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
-                
+
               </ul>
             </nav>
           </div>
@@ -133,7 +133,7 @@
                   <div class="x_title">
                     <h3><?php echo $editeur[0]->nomEditeur ?></h3>
                     <?php  $lienDelete = site_url("editeur/delete/".$editeur[0]->numEditeur); echo "<button onclick='location.href = \"$lienDelete\"' type='button' class='btn btn-danger'>Supprimer</button>"; ?>
-                    
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -147,15 +147,15 @@
                      </ul>
                            </div>
                       </div>
-                         
-                          
- 
-                      
+
+
+
+
                       <div class="row">
                        <?php
-                          
+
                         $numEditeur = $editeur[0]->numEditeur;
-                        $lien = site_url("contact/creer/$numEditeur/2");              
+                        $lien = site_url("contact/creer/$numEditeur/2");
                       echo <<<EOT
                         <h2>Contacts   <a class="glyphicon glyphicon-plus-sign" href="$lien"></a></h2>
 EOT;
@@ -163,43 +163,43 @@ EOT;
                       <div class="row">
                        <?php
                           $i = 1;
-                          
+
                           foreach($contact as $item) {
                               $numContact = $item->numContact;
-                              $lien2 = site_url("contact/modifier/$numContact/2");    
+                              $lien2 = site_url("contact/modifier/$numContact/2");
                               echo <<<EOT
-                          
+
                           <div class="col-md-2">
                               <h2>Contact n°$i <a class="glyphicon glyphicon-edit" href="$lien2"></a></h2>
                      <ul>
                          <li>Nom : $item->nomContact
-                         <li>Prénom : $item->prenomContact 
-                         <li>Mail : $item->mailContact 
-                         <li>Téléphone : $item->telContact 
+                         <li>Prénom : $item->prenomContact
+                         <li>Mail : $item->mailContact
+                         <li>Téléphone : $item->telContact
                      </ul>
                           </div>
 EOT;
                               $i++;
                                       }
-                                      
+
                                       ?>
                       </div>
-                      
+
 
                     <h2>Jeux   <a class="glyphicon glyphicon-plus-sign" href="<?php $id = $editeur[0]->numEditeur; echo site_url("jeu/creer/$id/2")?>"></a></h2>
-                    
-                    <div class="col-md-6 ">
+
+                    <div class="col-md-11 ">
                     <table id="datatableJeu" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Nom du Jeu</th>
                           <th>Type de Jeu</th>
-                          
+
                         </tr>
                       </thead>
                         <?php
 foreach ($jeu as $item) {
-    $id = $item->numJeu; 
+    $id = $item->numJeu;
     $lien = site_url("jeu/modifier/$id/2");
     echo <<<EOT
     <tr>
@@ -220,7 +220,7 @@ EOT;
 
         <!-- footer content -->
         <footer>
-          
+
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
@@ -290,7 +290,7 @@ EOT;
         } );
 </script>
 
-    
+
 
   </body>
 </html>
