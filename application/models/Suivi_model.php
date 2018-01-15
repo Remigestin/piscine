@@ -75,6 +75,7 @@ class Suivi_model extends CI_Model {
         $this->db->set('numSuivi', $data['numSuivi'])
                  ->set('commentaire', $data['commentaire'])
                  ->set('reponse', $data['reponse'])
+                ->set('prix', $data['prix'])
                  ->set('presentAuFestival', $data['presentAuFestival'])
                  ->set('paiement', $data['paiement'])
                  ->set('facture', $data['facture'])

@@ -207,6 +207,13 @@
                           <input type="date" name="derniereReponse" value = "<?php echo $suivi[0]->derniereDateReponse ?>">
                         </div>
                       </div>
+                                                        
+                        <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-3 col-xs-12">Prix</label>
+                        <div class="col-md-11 col-sm-9 col-xs-12">
+                          <input type="number" name="prix" value = "<?php echo $suivi[0]->prix ?>">
+                        </div>
+                      </div>                                
 
 
                       <input name="numEditeur" type="hidden" value="<?php echo $suivi[0]->numEditeur ?>">

@@ -96,7 +96,7 @@ class Suivi extends CI_Controller {
       "numSuivi" =>$data['suivi'][0]->numSuivi,
       "commentaire" => $data['suivi'][0]->commentaire,
       "reponse" => (int)$_POST['repondu'],
-      "prix" => $data['suivi'][0]->prix,
+      "prix" => (int)$_POST['prix'],
       "presentAuFestival" => (int)$_POST['present'],
       "paiement" => (int)$_POST['paye'],
       "facture" => (int)$_POST['facture'],
