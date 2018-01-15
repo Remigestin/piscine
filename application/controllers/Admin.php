@@ -81,8 +81,11 @@ public function index()
         }
 
         public function ajouterFest(){
+             $festival = $this->festival_model->getLast();
           $data = array(
+                "numFestival" => $festival[0]->numFestival +1,
                 "année" => (int)htmlspecialchars($_POST['anneeFestival']),
+                "nbDemiTableTotal" => 100,
             );
           $this->festival_model->insert($data);
           header('location:  ' . site_url('admin'));
