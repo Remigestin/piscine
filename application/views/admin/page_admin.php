@@ -182,7 +182,7 @@
                          <div class="form-group">
                              <form method="post"action="<?php echo site_url("admin/ajouterFest")?>">
                            <label class="control-label col-md-1 col-sm-3 col-xs-12">Ajouter Festival</label>
-                           <div class="col-md-1 col-sm-9 col-xs-12">
+                           <div class="col-md-2 col-sm-9 col-xs-12">
                              <input name="anneeFestival" type="text" class="form-control" >
                            </div>
 
@@ -197,7 +197,7 @@
                              <div class="form-group">
                              <form method='post' action=<?php echo site_url("admin/changeFest") ?>>
                         <label class="control-label col-md-1 col-sm-3 col-xs-12"> Festival courant</label>
-                       <div class="col-md-1 col-sm-9 col-xs-12">
+                       <div class="col-md-2 col-sm-9 col-xs-12">
 
 
 
@@ -227,7 +227,7 @@
                                <div class="form-group">
                                  <form method='post' action=<?php echo site_url("admin/deleteFest") ?>>
                                     <label class="control-label col-md-1 col-sm-3 col-xs-12"> Supprimer un Festival</label>
-                                   <div class="col-md-1 col-sm-9 col-xs-12">
+                                   <div class="col-md-2 col-sm-9 col-xs-12">
                                      <select name="festivalDelete" class="form-control" required>
                                        <?php
                                            foreach ($festival as $item) {
@@ -253,7 +253,7 @@
                       <div class="form-group">
                           <form method="post"action="<?php echo site_url("admin/nbTableMax")?>">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Nombre de Tables</label>
-                        <div class="col-md-1 col-sm-9 col-xs-12">
+                        <div class="col-md-2 col-sm-9 col-xs-12">
                           <input name="nbTable" type="number" class="form-control" value="<?php echo $courant[0]->nbDemiTableTotal /2?>">
                         </div>
                         <div class = "col-md-1">
@@ -268,7 +268,7 @@
                       <div class="form-group">
                           <form method="post"action="<?php echo site_url("admin/ajoutType")?>">
                         <label class="control-label col-md-1 col-sm-3 col-xs-12">Ajouter Type Jeu</label>
-                        <div class="col-md-1 col-sm-9 col-xs-12">
+                        <div class="col-md-2 col-sm-9 col-xs-12">
                           <input name="libelleType" type="text" class="form-control">
                         </div>
                         <div class = "col-md-1">
@@ -283,7 +283,7 @@
                              <div class="form-group">
                                <form method='post' action=<?php echo site_url("admin/deleteType") ?>>
                                   <label class="control-label col-md-1 col-sm-3 col-xs-12"> Supprimer Type Jeu</label>
-                                 <div class="col-md-1 col-sm-9 col-xs-12">
+                                 <div class="col-md-2 col-sm-9 col-xs-12">
                                    <select name="numType" class="form-control" required>
                                        <?php
                                            foreach ($type as $item) {
